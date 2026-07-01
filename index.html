@@ -158,8 +158,8 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; }
     </div>
   </div>
   <div class="lang-toggle">
-    <button class="lang-btn active" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn active" onclick="setLang('zh')">中文</button>
   </div>
 </header>
 
@@ -206,7 +206,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; }
       <thead>
         <tr>
           <th data-en="Bank" data-zh="銀行">Bank</th>
-          <th><span class="en-content">Difficulty</span><span class="zh-content" style="display:none">難度</span> <button class="sort-btn" onclick="sortTable('stars','asc')" title="Sort">▲▼</button></th>
+          <th><span class="en-content">Difficulty</span><span class="zh-content" style="display:none">難度</span> <button class="sort-btn" onclick="sortTable('stars')" title="Sort">▲▼</button></th>
           <th data-en="Max Loan" data-zh="最高貸款額">Max Loan</th>
           <th><span class="en-content">SFGS</span><span class="zh-content" style="display:none">SFGS</span></th>
           <th><span class="en-content">Forms</span><span class="zh-content" style="display:none">表格</span></th>
@@ -757,75 +757,6 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; }
 
         <div class="doc-item">
           <div class="doc-check">
-            <input type="checkbox" id="doc-ci" class="doc-checkbox">
-            <label for="doc-ci" class="doc-label">
-              <span class="doc-name en-content">Certificate of Incorporation / Articles of Association</span>
-              <span class="doc-name zh-content" style="display:none">公司註冊證書 / 章程細則</span>
-            </label>
-          </div>
-          <div class="doc-meta">
-            <span class="freq-badge freq-most en-content">Required by most banks (21/26)</span>
-            <span class="freq-badge freq-most zh-content" style="display:none">大多數銀行要求 (21/26)</span>
-            <span class="doc-note en-content">Required by virtually all banks for limited companies</span>
-            <span class="doc-note zh-content" style="display:none">幾乎所有銀行均要求有限公司提供</span>
-          </div>
-          <div class="doc-banks">
-            <span class="banks-label en-content">Required by:</span>
-            <span class="banks-label zh-content" style="display:none">要求銀行：</span>
-            <div class="bank-chips">
-              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">DBS Hong Kong</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Shanghai Commercial Bank</span><span class="chip">ICBC Asia</span><span class="chip">CCB Asia</span><span class="chip">Bank of Communications HK</span><span class="chip">Nanyang Commercial Bank</span><span class="chip">Public Bank HK</span><span class="chip">Chong Hing Bank</span><span class="chip">Fubon Bank HK</span><span class="chip">Chiyu Banking Corporation</span><span class="chip">China CITIC Bank International</span><span class="chip">ZA Bank</span><span class="chip">Fusion Bank</span><span class="chip">livi Bank</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="doc-item">
-          <div class="doc-check">
-            <input type="checkbox" id="doc-fs" class="doc-checkbox">
-            <label for="doc-fs" class="doc-label">
-              <span class="doc-name en-content">Latest Audited Financial Statements (2–3 years)</span>
-              <span class="doc-name zh-content" style="display:none">最新核數財務報告（2-3年）</span>
-            </label>
-          </div>
-          <div class="doc-meta">
-            <span class="freq-badge freq-many en-content">Required by many banks (17/26)</span>
-            <span class="freq-badge freq-many zh-content" style="display:none">許多銀行要求 (17/26)</span>
-            <span class="doc-note en-content">Required by 18 banks; waived by CNCB (≤HKD 3M), Fusion, PAObank, Ant Bank</span>
-            <span class="doc-note zh-content" style="display:none">18家銀行要求；中信（≤港幣300萬）、富融、匯立/平安、螞蟻豁免</span>
-          </div>
-          <div class="doc-banks">
-            <span class="banks-label en-content">Required by:</span>
-            <span class="banks-label zh-content" style="display:none">要求銀行：</span>
-            <div class="bank-chips">
-              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">DBS Hong Kong</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Shanghai Commercial Bank</span><span class="chip">ICBC Asia</span><span class="chip">CCB Asia</span><span class="chip">Bank of Communications HK</span><span class="chip">Nanyang Commercial Bank</span><span class="chip">Public Bank HK</span><span class="chip">Chong Hing Bank</span><span class="chip">Fubon Bank HK</span><span class="chip">Chiyu Banking Corporation</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="doc-item">
-          <div class="doc-check">
-            <input type="checkbox" id="doc-ma" class="doc-checkbox">
-            <label for="doc-ma" class="doc-label">
-              <span class="doc-name en-content">Latest Management Accounts (6–12 months)</span>
-              <span class="doc-name zh-content" style="display:none">最新管理賬目（6-12個月）</span>
-            </label>
-          </div>
-          <div class="doc-meta">
-            <span class="freq-badge freq-many en-content">Required by many banks (11/26)</span>
-            <span class="freq-badge freq-many zh-content" style="display:none">許多銀行要求 (11/26)</span>
-            <span class="doc-note en-content">Often required alongside audited accounts; Fusion accepts in lieu</span>
-            <span class="doc-note zh-content" style="display:none">通常與核數賬目一同要求；富融可接受代替核數賬目</span>
-          </div>
-          <div class="doc-banks">
-            <span class="banks-label en-content">Required by:</span>
-            <span class="banks-label zh-content" style="display:none">要求銀行：</span>
-            <div class="bank-chips">
-              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">DBS Hong Kong</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Chong Hing Bank</span><span class="chip">Fubon Bank HK</span><span class="chip">Chiyu Banking Corporation</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="doc-item">
-          <div class="doc-check">
             <input type="checkbox" id="doc-bs" class="doc-checkbox">
             <label for="doc-bs" class="doc-label">
               <span class="doc-name en-content">Bank Statements (6–12 months)</span>
@@ -843,29 +774,6 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; }
             <span class="banks-label zh-content" style="display:none">要求銀行：</span>
             <div class="bank-chips">
               <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">DBS Hong Kong</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">Dah Sing Bank</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Shanghai Commercial Bank</span><span class="chip">ICBC Asia</span><span class="chip">CCB Asia</span><span class="chip">Bank of Communications HK</span><span class="chip">Nanyang Commercial Bank</span><span class="chip">Public Bank HK</span><span class="chip">Chong Hing Bank</span><span class="chip">Fubon Bank HK</span><span class="chip">Chiyu Banking Corporation</span><span class="chip">China CITIC Bank International</span><span class="chip">PAObank / Ping An Digital Bank</span><span class="chip">ZA Bank</span><span class="chip">Fusion Bank</span><span class="chip">livi Bank</span><span class="chip">Ant Bank HK</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="doc-item">
-          <div class="doc-check">
-            <input type="checkbox" id="doc-taxreturn" class="doc-checkbox">
-            <label for="doc-taxreturn" class="doc-label">
-              <span class="doc-name en-content">Latest Tax Return / Profits Tax Assessment</span>
-              <span class="doc-name zh-content" style="display:none">最新報稅表 / 利得稅評稅表</span>
-            </label>
-          </div>
-          <div class="doc-meta">
-            <span class="freq-badge freq-many en-content">Required by many banks (14/26)</span>
-            <span class="freq-badge freq-many zh-content" style="display:none">許多銀行要求 (14/26)</span>
-            <span class="doc-note en-content">Dah Sing uses Tradelink eTax data as alternative</span>
-            <span class="doc-note zh-content" style="display:none">大新銀行使用貿易通電子報稅資料作為替代</span>
-          </div>
-          <div class="doc-banks">
-            <span class="banks-label en-content">Required by:</span>
-            <span class="banks-label zh-content" style="display:none">要求銀行：</span>
-            <div class="bank-chips">
-              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">DBS Hong Kong</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">Dah Sing Bank</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Nanyang Commercial Bank</span><span class="chip">Public Bank HK</span><span class="chip">Chong Hing Bank</span><span class="chip">Fubon Bank HK</span><span class="chip">Chiyu Banking Corporation</span>
             </div>
           </div>
         </div>
@@ -895,23 +803,23 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; }
 
         <div class="doc-item">
           <div class="doc-check">
-            <input type="checkbox" id="doc-br2" class="doc-checkbox">
-            <label for="doc-br2" class="doc-label">
-              <span class="doc-name en-content">Board Resolution / Company Chop</span>
-              <span class="doc-name zh-content" style="display:none">董事局決議案 / 公司印章</span>
+            <input type="checkbox" id="doc-ci" class="doc-checkbox">
+            <label for="doc-ci" class="doc-label">
+              <span class="doc-name en-content">Certificate of Incorporation / Articles of Association</span>
+              <span class="doc-name zh-content" style="display:none">公司註冊證書 / 章程細則</span>
             </label>
           </div>
           <div class="doc-meta">
-            <span class="freq-badge freq-many en-content">Required by many banks (17/26)</span>
-            <span class="freq-badge freq-many zh-content" style="display:none">許多銀行要求 (17/26)</span>
-            <span class="doc-note en-content">Standard Chartered provides downloadable template; required for limited companies</span>
-            <span class="doc-note zh-content" style="display:none">渣打提供可下載範本；有限公司均須提供</span>
+            <span class="freq-badge freq-most en-content">Required by most banks (21/26)</span>
+            <span class="freq-badge freq-most zh-content" style="display:none">大多數銀行要求 (21/26)</span>
+            <span class="doc-note en-content">Required by virtually all banks for limited companies</span>
+            <span class="doc-note zh-content" style="display:none">幾乎所有銀行均要求有限公司提供</span>
           </div>
           <div class="doc-banks">
             <span class="banks-label en-content">Required by:</span>
             <span class="banks-label zh-content" style="display:none">要求銀行：</span>
             <div class="bank-chips">
-              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">DBS Hong Kong</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Shanghai Commercial Bank</span><span class="chip">ICBC Asia</span><span class="chip">CCB Asia</span><span class="chip">Bank of Communications HK</span><span class="chip">Nanyang Commercial Bank</span><span class="chip">Public Bank HK</span><span class="chip">Chong Hing Bank</span><span class="chip">Fubon Bank HK</span><span class="chip">Chiyu Banking Corporation</span>
+              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">DBS Hong Kong</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Shanghai Commercial Bank</span><span class="chip">ICBC Asia</span><span class="chip">CCB Asia</span><span class="chip">Bank of Communications HK</span><span class="chip">Nanyang Commercial Bank</span><span class="chip">Public Bank HK</span><span class="chip">Chong Hing Bank</span><span class="chip">Fubon Bank HK</span><span class="chip">Chiyu Banking Corporation</span><span class="chip">China CITIC Bank International</span><span class="chip">ZA Bank</span><span class="chip">Fusion Bank</span><span class="chip">livi Bank</span>
             </div>
           </div>
         </div>
@@ -964,23 +872,69 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; }
 
         <div class="doc-item">
           <div class="doc-check">
-            <input type="checkbox" id="doc-pfs" class="doc-checkbox">
-            <label for="doc-pfs" class="doc-label">
-              <span class="doc-name en-content">Personal Financial Statement (Guarantor)</span>
-              <span class="doc-name zh-content" style="display:none">個人財務狀況表（保證人）</span>
+            <input type="checkbox" id="doc-sfgs_form" class="doc-checkbox">
+            <label for="doc-sfgs_form" class="doc-label">
+              <span class="doc-name en-content">HKMC SFGS Application Form</span>
+              <span class="doc-name zh-content" style="display:none">HKMC中小企融資擔保計劃申請表</span>
             </label>
           </div>
           <div class="doc-meta">
-            <span class="freq-badge freq-some en-content">Required by some banks (9/26)</span>
-            <span class="freq-badge freq-some zh-content" style="display:none">部分銀行要求 (9/26)</span>
-            <span class="doc-note en-content">Required by 9 banks, primarily for secured or SFGS applications</span>
-            <span class="doc-note zh-content" style="display:none">9家銀行要求，主要用於抵押或中小企融資擔保計劃申請</span>
+            <span class="freq-badge freq-many en-content">Required by many banks (18/26)</span>
+            <span class="freq-badge freq-many zh-content" style="display:none">許多銀行要求 (18/26)</span>
+            <span class="doc-note en-content">Separate HKMC form in addition to bank's own form; for SFGS products only</span>
+            <span class="doc-note zh-content" style="display:none">除銀行自有表格外還需額外的HKMC表格；僅適用於中小企融資擔保計劃產品</span>
           </div>
           <div class="doc-banks">
             <span class="banks-label en-content">Required by:</span>
             <span class="banks-label zh-content" style="display:none">要求銀行：</span>
             <div class="bank-chips">
-              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Chong Hing Bank</span><span class="chip">Chiyu Banking Corporation</span>
+              <span class="chip">HSBC Hong Kong</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">DBS Hong Kong</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">CCB Asia</span><span class="chip">Bank of Communications HK</span><span class="chip">Nanyang Commercial Bank</span><span class="chip">Chong Hing Bank</span><span class="chip">Fubon Bank HK</span><span class="chip">Chiyu Banking Corporation</span><span class="chip">China CITIC Bank International</span><span class="chip">PAObank / Ping An Digital Bank</span><span class="chip">ZA Bank</span><span class="chip">Fusion Bank</span><span class="chip">livi Bank</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-item">
+          <div class="doc-check">
+            <input type="checkbox" id="doc-fs" class="doc-checkbox">
+            <label for="doc-fs" class="doc-label">
+              <span class="doc-name en-content">Latest Audited Financial Statements (2–3 years)</span>
+              <span class="doc-name zh-content" style="display:none">最新核數財務報告（2-3年）</span>
+            </label>
+          </div>
+          <div class="doc-meta">
+            <span class="freq-badge freq-many en-content">Required by many banks (17/26)</span>
+            <span class="freq-badge freq-many zh-content" style="display:none">許多銀行要求 (17/26)</span>
+            <span class="doc-note en-content">Required by 18 banks; waived by CNCB (≤HKD 3M), Fusion, PAObank, Ant Bank</span>
+            <span class="doc-note zh-content" style="display:none">18家銀行要求；中信（≤港幣300萬）、富融、匯立/平安、螞蟻豁免</span>
+          </div>
+          <div class="doc-banks">
+            <span class="banks-label en-content">Required by:</span>
+            <span class="banks-label zh-content" style="display:none">要求銀行：</span>
+            <div class="bank-chips">
+              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">DBS Hong Kong</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Shanghai Commercial Bank</span><span class="chip">ICBC Asia</span><span class="chip">CCB Asia</span><span class="chip">Bank of Communications HK</span><span class="chip">Nanyang Commercial Bank</span><span class="chip">Public Bank HK</span><span class="chip">Chong Hing Bank</span><span class="chip">Fubon Bank HK</span><span class="chip">Chiyu Banking Corporation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-item">
+          <div class="doc-check">
+            <input type="checkbox" id="doc-br2" class="doc-checkbox">
+            <label for="doc-br2" class="doc-label">
+              <span class="doc-name en-content">Board Resolution / Company Chop</span>
+              <span class="doc-name zh-content" style="display:none">董事局決議案 / 公司印章</span>
+            </label>
+          </div>
+          <div class="doc-meta">
+            <span class="freq-badge freq-many en-content">Required by many banks (17/26)</span>
+            <span class="freq-badge freq-many zh-content" style="display:none">許多銀行要求 (17/26)</span>
+            <span class="doc-note en-content">Standard Chartered provides downloadable template; required for limited companies</span>
+            <span class="doc-note zh-content" style="display:none">渣打提供可下載範本；有限公司均須提供</span>
+          </div>
+          <div class="doc-banks">
+            <span class="banks-label en-content">Required by:</span>
+            <span class="banks-label zh-content" style="display:none">要求銀行：</span>
+            <div class="bank-chips">
+              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">DBS Hong Kong</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Shanghai Commercial Bank</span><span class="chip">ICBC Asia</span><span class="chip">CCB Asia</span><span class="chip">Bank of Communications HK</span><span class="chip">Nanyang Commercial Bank</span><span class="chip">Public Bank HK</span><span class="chip">Chong Hing Bank</span><span class="chip">Fubon Bank HK</span><span class="chip">Chiyu Banking Corporation</span>
             </div>
           </div>
         </div>
@@ -1010,6 +964,75 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; }
 
         <div class="doc-item">
           <div class="doc-check">
+            <input type="checkbox" id="doc-addr" class="doc-checkbox">
+            <label for="doc-addr" class="doc-label">
+              <span class="doc-name en-content">Proof of Business Address</span>
+              <span class="doc-name zh-content" style="display:none">業務地址證明</span>
+            </label>
+          </div>
+          <div class="doc-meta">
+            <span class="freq-badge freq-many en-content">Required by many banks (15/26)</span>
+            <span class="freq-badge freq-many zh-content" style="display:none">許多銀行要求 (15/26)</span>
+            <span class="doc-note en-content">Required by 15 banks; usually utility bill or tenancy agreement</span>
+            <span class="doc-note zh-content" style="display:none">15家銀行要求；通常為水電費賬單或租約</span>
+          </div>
+          <div class="doc-banks">
+            <span class="banks-label en-content">Required by:</span>
+            <span class="banks-label zh-content" style="display:none">要求銀行：</span>
+            <div class="bank-chips">
+              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Nanyang Commercial Bank</span><span class="chip">Public Bank HK</span><span class="chip">Chong Hing Bank</span><span class="chip">Chiyu Banking Corporation</span><span class="chip">China CITIC Bank International</span><span class="chip">ZA Bank</span><span class="chip">Fusion Bank</span><span class="chip">livi Bank</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-item">
+          <div class="doc-check">
+            <input type="checkbox" id="doc-taxreturn" class="doc-checkbox">
+            <label for="doc-taxreturn" class="doc-label">
+              <span class="doc-name en-content">Latest Tax Return / Profits Tax Assessment</span>
+              <span class="doc-name zh-content" style="display:none">最新報稅表 / 利得稅評稅表</span>
+            </label>
+          </div>
+          <div class="doc-meta">
+            <span class="freq-badge freq-many en-content">Required by many banks (14/26)</span>
+            <span class="freq-badge freq-many zh-content" style="display:none">許多銀行要求 (14/26)</span>
+            <span class="doc-note en-content">Dah Sing uses Tradelink eTax data as alternative</span>
+            <span class="doc-note zh-content" style="display:none">大新銀行使用貿易通電子報稅資料作為替代</span>
+          </div>
+          <div class="doc-banks">
+            <span class="banks-label en-content">Required by:</span>
+            <span class="banks-label zh-content" style="display:none">要求銀行：</span>
+            <div class="bank-chips">
+              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">DBS Hong Kong</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">Dah Sing Bank</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Nanyang Commercial Bank</span><span class="chip">Public Bank HK</span><span class="chip">Chong Hing Bank</span><span class="chip">Fubon Bank HK</span><span class="chip">Chiyu Banking Corporation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-item">
+          <div class="doc-check">
+            <input type="checkbox" id="doc-ma" class="doc-checkbox">
+            <label for="doc-ma" class="doc-label">
+              <span class="doc-name en-content">Latest Management Accounts (6–12 months)</span>
+              <span class="doc-name zh-content" style="display:none">最新管理賬目（6-12個月）</span>
+            </label>
+          </div>
+          <div class="doc-meta">
+            <span class="freq-badge freq-many en-content">Required by many banks (11/26)</span>
+            <span class="freq-badge freq-many zh-content" style="display:none">許多銀行要求 (11/26)</span>
+            <span class="doc-note en-content">Often required alongside audited accounts; Fusion accepts in lieu</span>
+            <span class="doc-note zh-content" style="display:none">通常與核數賬目一同要求；富融可接受代替核數賬目</span>
+          </div>
+          <div class="doc-banks">
+            <span class="banks-label en-content">Required by:</span>
+            <span class="banks-label zh-content" style="display:none">要求銀行：</span>
+            <div class="bank-chips">
+              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">DBS Hong Kong</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Chong Hing Bank</span><span class="chip">Fubon Bank HK</span><span class="chip">Chiyu Banking Corporation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-item">
+          <div class="doc-check">
             <input type="checkbox" id="doc-trade" class="doc-checkbox">
             <label for="doc-trade" class="doc-label">
               <span class="doc-name en-content">Trade / Invoice / Contract Documents</span>
@@ -1033,46 +1056,23 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; }
 
         <div class="doc-item">
           <div class="doc-check">
-            <input type="checkbox" id="doc-biz_plan" class="doc-checkbox">
-            <label for="doc-biz_plan" class="doc-label">
-              <span class="doc-name en-content">Business Plan / Purpose Statement</span>
-              <span class="doc-name zh-content" style="display:none">商業計劃書 / 貸款用途聲明</span>
+            <input type="checkbox" id="doc-pfs" class="doc-checkbox">
+            <label for="doc-pfs" class="doc-label">
+              <span class="doc-name en-content">Personal Financial Statement (Guarantor)</span>
+              <span class="doc-name zh-content" style="display:none">個人財務狀況表（保證人）</span>
             </label>
           </div>
           <div class="doc-meta">
-            <span class="freq-badge freq-some en-content">Required by some banks (6/26)</span>
-            <span class="freq-badge freq-some zh-content" style="display:none">部分銀行要求 (6/26)</span>
-            <span class="doc-note en-content">Required by 6 banks; more often asked verbally via RM</span>
-            <span class="doc-note zh-content" style="display:none">6家銀行要求；更多情況下由客戶關係經理口頭詢問</span>
+            <span class="freq-badge freq-some en-content">Required by some banks (9/26)</span>
+            <span class="freq-badge freq-some zh-content" style="display:none">部分銀行要求 (9/26)</span>
+            <span class="doc-note en-content">Required by 9 banks, primarily for secured or SFGS applications</span>
+            <span class="doc-note zh-content" style="display:none">9家銀行要求，主要用於抵押或中小企融資擔保計劃申請</span>
           </div>
           <div class="doc-banks">
             <span class="banks-label en-content">Required by:</span>
             <span class="banks-label zh-content" style="display:none">要求銀行：</span>
             <div class="bank-chips">
-              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">Chong Hing Bank</span><span class="chip">Fusion Bank</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="doc-item">
-          <div class="doc-check">
-            <input type="checkbox" id="doc-addr" class="doc-checkbox">
-            <label for="doc-addr" class="doc-label">
-              <span class="doc-name en-content">Proof of Business Address</span>
-              <span class="doc-name zh-content" style="display:none">業務地址證明</span>
-            </label>
-          </div>
-          <div class="doc-meta">
-            <span class="freq-badge freq-many en-content">Required by many banks (15/26)</span>
-            <span class="freq-badge freq-many zh-content" style="display:none">許多銀行要求 (15/26)</span>
-            <span class="doc-note en-content">Required by 15 banks; usually utility bill or tenancy agreement</span>
-            <span class="doc-note zh-content" style="display:none">15家銀行要求；通常為水電費賬單或租約</span>
-          </div>
-          <div class="doc-banks">
-            <span class="banks-label en-content">Required by:</span>
-            <span class="banks-label zh-content" style="display:none">要求銀行：</span>
-            <div class="bank-chips">
-              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Nanyang Commercial Bank</span><span class="chip">Public Bank HK</span><span class="chip">Chong Hing Bank</span><span class="chip">Chiyu Banking Corporation</span><span class="chip">China CITIC Bank International</span><span class="chip">ZA Bank</span><span class="chip">Fusion Bank</span><span class="chip">livi Bank</span>
+              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">Chong Hing Bank</span><span class="chip">Chiyu Banking Corporation</span>
             </div>
           </div>
         </div>
@@ -1125,23 +1125,23 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; }
 
         <div class="doc-item">
           <div class="doc-check">
-            <input type="checkbox" id="doc-sfgs_form" class="doc-checkbox">
-            <label for="doc-sfgs_form" class="doc-label">
-              <span class="doc-name en-content">HKMC SFGS Application Form</span>
-              <span class="doc-name zh-content" style="display:none">HKMC中小企融資擔保計劃申請表</span>
+            <input type="checkbox" id="doc-biz_plan" class="doc-checkbox">
+            <label for="doc-biz_plan" class="doc-label">
+              <span class="doc-name en-content">Business Plan / Purpose Statement</span>
+              <span class="doc-name zh-content" style="display:none">商業計劃書 / 貸款用途聲明</span>
             </label>
           </div>
           <div class="doc-meta">
-            <span class="freq-badge freq-many en-content">Required by many banks (18/26)</span>
-            <span class="freq-badge freq-many zh-content" style="display:none">許多銀行要求 (18/26)</span>
-            <span class="doc-note en-content">Separate HKMC form in addition to bank's own form; for SFGS products only</span>
-            <span class="doc-note zh-content" style="display:none">除銀行自有表格外還需額外的HKMC表格；僅適用於中小企融資擔保計劃產品</span>
+            <span class="freq-badge freq-some en-content">Required by some banks (6/26)</span>
+            <span class="freq-badge freq-some zh-content" style="display:none">部分銀行要求 (6/26)</span>
+            <span class="doc-note en-content">Required by 6 banks; more often asked verbally via RM</span>
+            <span class="doc-note zh-content" style="display:none">6家銀行要求；更多情況下由客戶關係經理口頭詢問</span>
           </div>
           <div class="doc-banks">
             <span class="banks-label en-content">Required by:</span>
             <span class="banks-label zh-content" style="display:none">要求銀行：</span>
             <div class="bank-chips">
-              <span class="chip">HSBC Hong Kong</span><span class="chip">Hang Seng Bank</span><span class="chip">Bank of China HK</span><span class="chip">DBS Hong Kong</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">CMB Wing Lung Bank</span><span class="chip">CCB Asia</span><span class="chip">Bank of Communications HK</span><span class="chip">Nanyang Commercial Bank</span><span class="chip">Chong Hing Bank</span><span class="chip">Fubon Bank HK</span><span class="chip">Chiyu Banking Corporation</span><span class="chip">China CITIC Bank International</span><span class="chip">PAObank / Ping An Digital Bank</span><span class="chip">ZA Bank</span><span class="chip">Fusion Bank</span><span class="chip">livi Bank</span>
+              <span class="chip">HSBC Hong Kong</span><span class="chip">Standard Chartered HK</span><span class="chip">Bank of East Asia</span><span class="chip">OCBC Hong Kong</span><span class="chip">Chong Hing Bank</span><span class="chip">Fusion Bank</span>
             </div>
           </div>
         </div>
@@ -2864,7 +2864,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; }
 </footer>
 
 <script>
-var currentLang = 'en';
+var currentLang = 'zh';
 var currentFilter = 'all';
 var sortDir = {'stars': 'asc'};
 
@@ -2907,7 +2907,8 @@ function filterBanks(type, btn) {
   });
 }
 
-function sortTable(col, dir) {
+function sortTable(col) {
+  var dir = sortDir[col] || 'asc';
   var tbody = document.getElementById('bank-tbody');
   var rows = Array.from(tbody.querySelectorAll('tr'));
   rows.sort((a,b) => {
@@ -2959,8 +2960,8 @@ function uncheckAll() {
   updateProgress();
 }
 
-// init
-updateProgress();
+// init — default to Traditional Chinese
+setLang('zh');
 </script>
 </body>
 </html>
