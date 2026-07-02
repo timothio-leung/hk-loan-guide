@@ -82,6 +82,14 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
 /* SORT BUTTON */
 .sort-btn { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.7); font-size: 10px; margin-left: 4px; }
 .sort-btn:hover { color: var(--gold); }
+/* FORM LINK (Forms column) */
+.form-link { text-decoration: none; font-size: 15px; display: inline-block; transition: transform 0.1s; }
+.form-link:hover { transform: scale(1.2); }
+.form-link.has-forms { filter: none; }
+.form-link.no-forms { opacity: 0.7; }
+/* PDF DOWNLOAD BUTTON */
+.dl-btn { background: var(--navy); color: var(--white) !important; border-color: var(--navy); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; }
+.dl-btn:hover { background: var(--navy-light); border-color: var(--navy-light); }
 /* DOCUMENT CHECKLIST */
 .checklist-controls { display: flex; gap: 10px; margin-bottom: 16px; align-items: center; flex-wrap: wrap; }
 .checklist-btn { background: var(--white); border: 1px solid var(--border); color: var(--text-secondary); padding: 5px 14px; border-radius: 20px; cursor: pointer; font-size: 12px; font-weight: 600; }
@@ -252,7 +260,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
       </thead>
       <tbody id="bank-tbody">
         
-        <tr class="bank-row" data-id="hsbc" data-stars="4">
+        <tr class="bank-row" data-id="hsbc" data-stars="4" data-docs="true">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="HSBC Hong Kong" data-zh="香港匯豐銀行">HSBC Hong Kong</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -264,14 +272,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 18M (SFGS)" data-zh="港幣1,800萬（SFGS）">HKD 18M (SFGS)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">✅</td>
+          <td class="docs-cell">
+            <a href="https://www.hsbc.com.hk/business/borrowing/business-instalment-loan/" target="_blank" rel="noopener" class="form-link has-forms">
+              <span class="en-content" title="Forms available — visit bank website">✅</span>
+              <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / RM / Online (HSBC Business Banking)" data-zh="分行 / 客戶關係經理 / 網上（匯豐商業銀行）">Branch / RM / Online (HSBC Business Banking)</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('hsbc')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="scb" data-stars="3">
+        <tr class="bank-row" data-id="scb" data-stars="3" data-docs="true">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Standard Chartered HK" data-zh="渣打銀行（香港）">Standard Chartered HK</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -283,14 +296,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 40M" data-zh="港幣4,000萬">HKD 40M</td>
           <td class="sfgs-cell">—</td>
-          <td class="docs-cell">✅</td>
+          <td class="docs-cell">
+            <a href="https://www.sc.com/hk/business-banking/business-loans/" target="_blank" rel="noopener" class="form-link has-forms">
+              <span class="en-content" title="Forms available — visit bank website">✅</span>
+              <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / RM / Straight2Bank portal" data-zh="分行 / 客戶關係經理 / Straight2Bank門戶">Branch / RM / Straight2Bank portal</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('scb')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="hangseng" data-stars="3">
+        <tr class="bank-row" data-id="hangseng" data-stars="3" data-docs="true">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Hang Seng Bank" data-zh="恒生銀行">Hang Seng Bank</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -302,14 +320,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 18M (SFGS)" data-zh="港幣1,800萬（SFGS）">HKD 18M (SFGS)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">✅</td>
+          <td class="docs-cell">
+            <a href="https://bank.hangseng.com/1/2/business/loans-and-mortgages/business-instalment-loan" target="_blank" rel="noopener" class="form-link has-forms">
+              <span class="en-content" title="Forms available — visit bank website">✅</span>
+              <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / Online (SFGS 80%)" data-zh="分行 / 網上（SFGS 80%）">Branch / Online (SFGS 80%)</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('hangseng')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="bochk" data-stars="3">
+        <tr class="bank-row" data-id="bochk" data-stars="3" data-docs="true">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Bank of China HK" data-zh="中國銀行（香港）">Bank of China HK</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -321,14 +344,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 18M (SFGS)" data-zh="港幣1,800萬（SFGS）">HKD 18M (SFGS)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">✅</td>
+          <td class="docs-cell">
+            <a href="https://www.bochk.com/en/more/sme/bocsme.html" target="_blank" rel="noopener" class="form-link has-forms">
+              <span class="en-content" title="Forms available — visit bank website">✅</span>
+              <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / RM" data-zh="分行 / 客戶關係經理">Branch / RM</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('bochk')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="dbs" data-stars="3">
+        <tr class="bank-row" data-id="dbs" data-stars="3" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="DBS Hong Kong" data-zh="星展銀行（香港）">DBS Hong Kong</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -340,14 +368,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 12M (SMEGS)" data-zh="港幣1,200萬（中小企貸款擔保計劃）">HKD 12M (SMEGS)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.dbs.com.hk/sme/financing/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="DBS iBanking portal / Branch / RM" data-zh="星展網上銀行 / 分行 / 客戶關係經理">DBS iBanking portal / Branch / RM</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('dbs')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="bea" data-stars="3">
+        <tr class="bank-row" data-id="bea" data-stars="3" data-docs="true">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Bank of East Asia" data-zh="東亞銀行">Bank of East Asia</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -359,14 +392,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 18M (SFGS)" data-zh="港幣1,800萬（SFGS）">HKD 18M (SFGS)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">✅</td>
+          <td class="docs-cell">
+            <a href="https://www.hkbea.com/html/en/banking-business-enterprise-easy-finance/index.html" target="_blank" rel="noopener" class="form-link has-forms">
+              <span class="en-content" title="Forms available — visit bank website">✅</span>
+              <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / Online" data-zh="分行 / 網上">Branch / Online</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('bea')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="ocbc" data-stars="4">
+        <tr class="bank-row" data-id="ocbc" data-stars="4" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="OCBC Hong Kong" data-zh="華僑永亨銀行">OCBC Hong Kong</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -378,14 +416,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 18M (SFGS)" data-zh="港幣1,800萬（SFGS）">HKD 18M (SFGS)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.ocbc.com.hk/business-banking/products-and-services/loans/sme-loan.page" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / Online (SFGS Express)" data-zh="分行 / 網上（SFGS快遞）">Branch / Online (SFGS Express)</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('ocbc')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="citi" data-stars="5">
+        <tr class="bank-row" data-id="citi" data-stars="5" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Citi Hong Kong" data-zh="花旗銀行（香港）">Citi Hong Kong</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -397,14 +440,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="Not stated" data-zh="未公開">Not stated</td>
           <td class="sfgs-cell">—</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.citibank.com.hk/english/business-banking/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Relationship Manager only" data-zh="僅限客戶關係經理">Relationship Manager only</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('citi')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="uob" data-stars="5">
+        <tr class="bank-row" data-id="uob" data-stars="5" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="UOB Hong Kong" data-zh="大華銀行（香港）">UOB Hong Kong</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -416,14 +464,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="Not stated" data-zh="未公開">Not stated</td>
           <td class="sfgs-cell">—</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.uob.com.hk/business/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / Relationship Manager only" data-zh="分行 / 僅限客戶關係經理">Branch / Relationship Manager only</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('uob')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="dahsing" data-stars="3">
+        <tr class="bank-row" data-id="dahsing" data-stars="3" data-docs="true">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Dah Sing Bank" data-zh="大新銀行">Dah Sing Bank</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -435,14 +488,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 1M" data-zh="港幣100萬">HKD 1M</td>
           <td class="sfgs-cell">—</td>
-          <td class="docs-cell">✅</td>
+          <td class="docs-cell">
+            <a href="https://www.dahsing.com/en/business/financing/" target="_blank" rel="noopener" class="form-link has-forms">
+              <span class="en-content" title="Forms available — visit bank website">✅</span>
+              <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Tradelink / Branch" data-zh="貿易通 / 分行">Tradelink / Branch</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('dahsing')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="cmbwl" data-stars="4">
+        <tr class="bank-row" data-id="cmbwl" data-stars="4" data-docs="true">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="CMB Wing Lung Bank" data-zh="招商永隆銀行">CMB Wing Lung Bank</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -454,14 +512,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 12M (SFGS)" data-zh="港幣1,200萬（SFGS）">HKD 12M (SFGS)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">✅</td>
+          <td class="docs-cell">
+            <a href="https://www.cmbwinglungbank.com/en/sme-financing/" target="_blank" rel="noopener" class="form-link has-forms">
+              <span class="en-content" title="Forms available — visit bank website">✅</span>
+              <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / RM" data-zh="分行 / 客戶關係經理">Branch / RM</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('cmbwl')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="scb_sh" data-stars="5">
+        <tr class="bank-row" data-id="scb_sh" data-stars="5" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Shanghai Commercial Bank" data-zh="上海商業銀行">Shanghai Commercial Bank</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -473,14 +536,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="Not stated" data-zh="未公開">Not stated</td>
           <td class="sfgs-cell">—</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.shcb.com.hk/en/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / Hotline" data-zh="分行 / 熱線">Branch / Hotline</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('scb_sh')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="icbc" data-stars="5">
+        <tr class="bank-row" data-id="icbc" data-stars="5" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="ICBC Asia" data-zh="工銀亞洲">ICBC Asia</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -492,14 +560,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="Not stated" data-zh="未公開">Not stated</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.icbcasia.com/icbcasia/html/en/Business/SMEFinancialService/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch RM / Corporate Internet Banking" data-zh="分行客戶關係經理 / 企業網上銀行">Branch RM / Corporate Internet Banking</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('icbc')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="ccb" data-stars="4">
+        <tr class="bank-row" data-id="ccb" data-stars="4" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="CCB Asia" data-zh="建銀亞洲">CCB Asia</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -511,14 +584,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 18M (SFGS 80%)" data-zh="港幣1,800萬（SFGS 80%）">HKD 18M (SFGS 80%)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.ccbasia.com/en/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / Hotline / SME Centres" data-zh="分行 / 熱線 / 中小企服務中心">Branch / Hotline / SME Centres</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('ccb')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="boccom" data-stars="4">
+        <tr class="bank-row" data-id="boccom" data-stars="4" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Bank of Communications HK" data-zh="交通銀行（香港）">Bank of Communications HK</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -530,14 +608,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 18M (SFGS)" data-zh="港幣1,800萬（SFGS）">HKD 18M (SFGS)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.bankcomm.com.hk/en/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / Hotline" data-zh="分行 / 熱線">Branch / Hotline</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('boccom')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="ncb" data-stars="4">
+        <tr class="bank-row" data-id="ncb" data-stars="4" data-docs="true">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Nanyang Commercial Bank" data-zh="南洋商業銀行">Nanyang Commercial Bank</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -549,14 +632,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 2M (unsecured)" data-zh="港幣200萬（非抵押）">HKD 2M (unsecured)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">✅</td>
+          <td class="docs-cell">
+            <a href="https://www.ncb.com.hk/en/sme/" target="_blank" rel="noopener" class="form-link has-forms">
+              <span class="en-content" title="Forms available — visit bank website">✅</span>
+              <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch" data-zh="分行">Branch</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('ncb')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="publicbank" data-stars="4">
+        <tr class="bank-row" data-id="publicbank" data-stars="4" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Public Bank HK" data-zh="大眾銀行（香港）">Public Bank HK</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -568,14 +656,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 12M (SFGS)" data-zh="港幣1,200萬（SFGS）">HKD 12M (SFGS)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.publicbank.com.hk/en/business/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / Hotline" data-zh="分行 / 熱線">Branch / Hotline</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('publicbank')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="chonghing" data-stars="4">
+        <tr class="bank-row" data-id="chonghing" data-stars="4" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Chong Hing Bank" data-zh="創興銀行">Chong Hing Bank</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -587,14 +680,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="Not stated" data-zh="未公開">Not stated</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.chbank.com/en/sme/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / SME team" data-zh="分行 / 中小企團隊">Branch / SME team</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('chonghing')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="fubon" data-stars="3">
+        <tr class="bank-row" data-id="fubon" data-stars="3" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Fubon Bank HK" data-zh="富邦銀行（香港）">Fubon Bank HK</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -606,14 +704,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 18M (SFGS 80%)" data-zh="港幣1,800萬（SFGS 80%）">HKD 18M (SFGS 80%)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.fubonbank.com.hk/en/business-banking/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Online / Branch" data-zh="網上 / 分行">Online / Branch</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('fubon')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="chiyu" data-stars="4">
+        <tr class="bank-row" data-id="chiyu" data-stars="4" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Chiyu Banking Corporation" data-zh="集友銀行">Chiyu Banking Corporation</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -625,14 +728,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 18M (SFGS)" data-zh="港幣1,800萬（SFGS）">HKD 18M (SFGS)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.chiyubank.com/en/business/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Branch / Application Hotline" data-zh="分行 / 申請熱線">Branch / Application Hotline</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('chiyu')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="cncb" data-stars="2">
+        <tr class="bank-row" data-id="cncb" data-stars="2" data-docs="true">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="China CITIC Bank International" data-zh="中信銀行（國際）">China CITIC Bank International</div>
             <span class="bank-type-badge badge-traditional" data-en="Traditional" data-zh="傳統銀行">Traditional</span>
@@ -644,14 +752,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 3M (no financials)" data-zh="港幣300萬（無需財務報告）">HKD 3M (no financials)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">✅</td>
+          <td class="docs-cell">
+            <a href="https://www.cncbinternational.com/sme/business-financing/sme-business-loan/en/index.jsp" target="_blank" rel="noopener" class="form-link has-forms">
+              <span class="en-content" title="Forms available — visit bank website">✅</span>
+              <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Online 24/7 / Branch" data-zh="24小時網上 / 分行">Online 24/7 / Branch</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('cncb')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="paobank" data-stars="1">
+        <tr class="bank-row" data-id="paobank" data-stars="1" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="PAObank / Ping An Digital Bank" data-zh="匯立銀行 / 平安數字銀行">PAObank / Ping An Digital Bank</div>
             <span class="bank-type-badge badge-virtual" data-en="Virtual" data-zh="虛擬銀行">Virtual</span>
@@ -663,14 +776,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 2M (unsecured, no docs)" data-zh="港幣200萬（非抵押，無需文件）">HKD 2M (unsecured, no docs)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.pingandb.com/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="PAO app / pingandb.com" data-zh="PAO應用程式 / pingandb.com">PAO app / pingandb.com</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('paobank')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="zabank" data-stars="2">
+        <tr class="bank-row" data-id="zabank" data-stars="2" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="ZA Bank" data-zh="眾安銀行">ZA Bank</div>
             <span class="bank-type-badge badge-virtual" data-en="Virtual" data-zh="虛擬銀行">Virtual</span>
@@ -682,14 +800,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 18M (SFGS)" data-zh="港幣1,800萬（SFGS）">HKD 18M (SFGS)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://bank.za.group/en/business" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="ZA Bank app" data-zh="眾安銀行應用程式">ZA Bank app</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('zabank')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="fusion" data-stars="2">
+        <tr class="bank-row" data-id="fusion" data-stars="2" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Fusion Bank" data-zh="富融銀行">Fusion Bank</div>
             <span class="bank-type-badge badge-virtual" data-en="Virtual" data-zh="虛擬銀行">Virtual</span>
@@ -701,14 +824,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 5M (BIL 365)" data-zh="港幣500萬（商業分期貸款365）">HKD 5M (BIL 365)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.fusionbank.com/biz/loanapplication.html" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Fusion Bank app / Online" data-zh="富融銀行應用程式 / 網上">Fusion Bank app / Online</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('fusion')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="livi" data-stars="2">
+        <tr class="bank-row" data-id="livi" data-stars="2" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="livi Bank" data-zh="理慧銀行">livi Bank</div>
             <span class="bank-type-badge badge-virtual" data-en="Virtual" data-zh="虛擬銀行">Virtual</span>
@@ -720,14 +848,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 18M (SFGS 80%)" data-zh="港幣1,800萬（SFGS 80%）">HKD 18M (SFGS 80%)</td>
           <td class="sfgs-cell">✅</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://www.livibank.com/business/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="livi app only" data-zh="僅限理慧應用程式">livi app only</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('livi')" data-en="Details" data-zh="詳情">Details</button>
           </td>
         </tr>
 
-        <tr class="bank-row" data-id="antbank" data-stars="2">
+        <tr class="bank-row" data-id="antbank" data-stars="2" data-docs="false">
           <td class="bank-name-cell">
             <div class="bank-name" data-en="Ant Bank HK" data-zh="螞蟻銀行（香港）">Ant Bank HK</div>
             <span class="bank-type-badge badge-virtual" data-en="Virtual" data-zh="虛擬銀行">Virtual</span>
@@ -739,7 +872,12 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           </td>
           <td class="amount-cell" data-en="HKD 5M (unsecured)" data-zh="港幣500萬（非抵押）">HKD 5M (unsecured)</td>
           <td class="sfgs-cell">—</td>
-          <td class="docs-cell">❌</td>
+          <td class="docs-cell">
+            <a href="https://business.antbank.hk/" target="_blank" rel="noopener" class="form-link no-forms">
+              <span class="en-content" title="No public forms — visit bank website to enquire">🌐</span>
+              <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
+            </a>
+          </td>
           <td class="channel-cell" data-en="Ant Bank app / business.antbank.hk" data-zh="螞蟻銀行應用程式 / business.antbank.hk">Ant Bank app / business.antbank.hk</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('antbank')" data-en="Details" data-zh="詳情">Details</button>
@@ -761,6 +899,14 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
   <div class="checklist-controls">
     <button class="checklist-btn" onclick="checkAll()" data-en="Check All" data-zh="全部勾選">Check All</button>
     <button class="checklist-btn" onclick="uncheckAll()" data-en="Clear All" data-zh="全部清除">Clear All</button>
+    <a class="checklist-btn dl-btn" href="https://timothio-leung.github.io/hk-loan-guide/HK_Business_Loan_Document_Checklist_ZH.pdf" target="_blank" rel="noopener">
+      <span class="en-content">📥 PDF (Chinese)</span>
+      <span class="zh-content" style="display:none">📥 下載清單 PDF（中文）</span>
+    </a>
+    <a class="checklist-btn dl-btn" href="https://timothio-leung.github.io/hk-loan-guide/HK_Business_Loan_Document_Checklist_EN.pdf" target="_blank" rel="noopener">
+      <span class="en-content">📥 PDF (English)</span>
+      <span class="zh-content" style="display:none">📥 下載清單 PDF（英文）</span>
+    </a>
     <div class="doc-progress">
       <div class="progress-label" id="progress-label">0 / 19 prepared</div>
       <div class="doc-progress-bar"><div class="doc-progress-fill" id="progress-fill"></div></div>
@@ -1348,8 +1494,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 有</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">✅ Forms available — </span>
+                <span class="zh-content" style="display:none">✅ 有表格——</span>
+                <a href="https://www.hsbc.com.hk/business/borrowing/business-instalment-loan/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">HSBC Hong Kong website ↗</span>
+                  <span class="zh-content" style="display:none">香港匯豐銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -1409,8 +1562,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">❌ No</span><span class="zh-content" style="display:none">❌ 否</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 有</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">✅ Forms available — </span>
+                <span class="zh-content" style="display:none">✅ 有表格——</span>
+                <a href="https://www.sc.com/hk/business-banking/business-loans/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Standard Chartered HK website ↗</span>
+                  <span class="zh-content" style="display:none">渣打銀行（香港） 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -1470,8 +1630,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 有</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">✅ Forms available — </span>
+                <span class="zh-content" style="display:none">✅ 有表格——</span>
+                <a href="https://bank.hangseng.com/1/2/business/loans-and-mortgages/business-instalment-loan" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Hang Seng Bank website ↗</span>
+                  <span class="zh-content" style="display:none">恒生銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -1531,8 +1698,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 有</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">✅ Forms available — </span>
+                <span class="zh-content" style="display:none">✅ 有表格——</span>
+                <a href="https://www.bochk.com/en/more/sme/bocsme.html" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Bank of China HK website ↗</span>
+                  <span class="zh-content" style="display:none">中國銀行（香港） 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -1592,8 +1766,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.dbs.com.hk/sme/financing/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">DBS Hong Kong website ↗</span>
+                  <span class="zh-content" style="display:none">星展銀行（香港） 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -1653,8 +1834,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 有</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">✅ Forms available — </span>
+                <span class="zh-content" style="display:none">✅ 有表格——</span>
+                <a href="https://www.hkbea.com/html/en/banking-business-enterprise-easy-finance/index.html" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Bank of East Asia website ↗</span>
+                  <span class="zh-content" style="display:none">東亞銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -1714,8 +1902,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.ocbc.com.hk/business-banking/products-and-services/loans/sme-loan.page" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">OCBC Hong Kong website ↗</span>
+                  <span class="zh-content" style="display:none">華僑永亨銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -1775,8 +1970,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">❌ No</span><span class="zh-content" style="display:none">❌ 否</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.citibank.com.hk/english/business-banking/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Citi Hong Kong website ↗</span>
+                  <span class="zh-content" style="display:none">花旗銀行（香港） 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -1836,8 +2038,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">❌ No</span><span class="zh-content" style="display:none">❌ 否</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.uob.com.hk/business/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">UOB Hong Kong website ↗</span>
+                  <span class="zh-content" style="display:none">大華銀行（香港） 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -1897,8 +2106,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">❌ No</span><span class="zh-content" style="display:none">❌ 否</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 有</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">✅ Forms available — </span>
+                <span class="zh-content" style="display:none">✅ 有表格——</span>
+                <a href="https://www.dahsing.com/en/business/financing/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Dah Sing Bank website ↗</span>
+                  <span class="zh-content" style="display:none">大新銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -1958,8 +2174,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 有</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">✅ Forms available — </span>
+                <span class="zh-content" style="display:none">✅ 有表格——</span>
+                <a href="https://www.cmbwinglungbank.com/en/sme-financing/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">CMB Wing Lung Bank website ↗</span>
+                  <span class="zh-content" style="display:none">招商永隆銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2019,8 +2242,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">❌ No</span><span class="zh-content" style="display:none">❌ 否</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.shcb.com.hk/en/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Shanghai Commercial Bank website ↗</span>
+                  <span class="zh-content" style="display:none">上海商業銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2080,8 +2310,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.icbcasia.com/icbcasia/html/en/Business/SMEFinancialService/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">ICBC Asia website ↗</span>
+                  <span class="zh-content" style="display:none">工銀亞洲 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2141,8 +2378,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.ccbasia.com/en/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">CCB Asia website ↗</span>
+                  <span class="zh-content" style="display:none">建銀亞洲 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2202,8 +2446,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.bankcomm.com.hk/en/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Bank of Communications HK website ↗</span>
+                  <span class="zh-content" style="display:none">交通銀行（香港） 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2263,8 +2514,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 有</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">✅ Forms available — </span>
+                <span class="zh-content" style="display:none">✅ 有表格——</span>
+                <a href="https://www.ncb.com.hk/en/sme/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Nanyang Commercial Bank website ↗</span>
+                  <span class="zh-content" style="display:none">南洋商業銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2324,8 +2582,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.publicbank.com.hk/en/business/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Public Bank HK website ↗</span>
+                  <span class="zh-content" style="display:none">大眾銀行（香港） 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2385,8 +2650,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.chbank.com/en/sme/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Chong Hing Bank website ↗</span>
+                  <span class="zh-content" style="display:none">創興銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2446,8 +2718,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.fubonbank.com.hk/en/business-banking/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Fubon Bank HK website ↗</span>
+                  <span class="zh-content" style="display:none">富邦銀行（香港） 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2507,8 +2786,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.chiyubank.com/en/business/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Chiyu Banking Corporation website ↗</span>
+                  <span class="zh-content" style="display:none">集友銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2568,8 +2854,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 有</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">✅ Forms available — </span>
+                <span class="zh-content" style="display:none">✅ 有表格——</span>
+                <a href="https://www.cncbinternational.com/sme/business-financing/sme-business-loan/en/index.jsp" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">China CITIC Bank International website ↗</span>
+                  <span class="zh-content" style="display:none">中信銀行（國際） 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2629,8 +2922,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.pingandb.com/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">PAObank / Ping An Digital Bank website ↗</span>
+                  <span class="zh-content" style="display:none">匯立銀行 / 平安數字銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2690,8 +2990,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://bank.za.group/en/business" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">ZA Bank website ↗</span>
+                  <span class="zh-content" style="display:none">眾安銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2751,8 +3058,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.fusionbank.com/biz/loanapplication.html" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Fusion Bank website ↗</span>
+                  <span class="zh-content" style="display:none">富融銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2812,8 +3126,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">✅ Yes</span><span class="zh-content" style="display:none">✅ 是</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://www.livibank.com/business/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">livi Bank website ↗</span>
+                  <span class="zh-content" style="display:none">理慧銀行 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2873,8 +3194,15 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <p><span class="en-content">❌ No</span><span class="zh-content" style="display:none">❌ 否</span></p>
             </div>
             <div class="modal-section">
-              <h3 data-en="Forms Available" data-zh="表格可下載">Forms Available</h3>
-              <p><span class="en-content">❌ No — contact bank</span><span class="zh-content" style="display:none">❌ 沒有——請聯絡銀行</span></p>
+              <h3 data-en="Forms / Website" data-zh="表格 / 網站">Forms / Website</h3>
+              <p>
+                <span class="en-content">🌐 Visit — </span>
+                <span class="zh-content" style="display:none">🌐 瀏覽——</span>
+                <a href="https://business.antbank.hk/" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600">
+                  <span class="en-content">Ant Bank HK website ↗</span>
+                  <span class="zh-content" style="display:none">螞蟻銀行（香港） 網站 ↗</span>
+                </a>
+              </p>
             </div>
           </div>
           <div class="modal-col">
@@ -2937,7 +3265,7 @@ function filterBanks(type, btn) {
     var show = true;
     if(type==='sfgs') show = row.querySelector('.sfgs-cell').textContent.trim()==='✅';
     else if(type==='virtual') show = row.querySelector('.bank-type-badge').classList.contains('badge-virtual');
-    else if(type==='docs') show = row.querySelector('.docs-cell').textContent.trim()==='✅';
+    else if(type==='docs') show = row.getAttribute('data-docs')==='true';
     else if(type==='easy') show = parseInt(row.getAttribute('data-stars')) <= 2;
     row.classList.toggle('hidden', !show);
   });
