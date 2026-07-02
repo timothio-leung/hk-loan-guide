@@ -196,9 +196,11 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
 }
 /* UTILS */
 .hidden { display: none !important; }
-/* FINANCING SOLUTIONS TAB (rj-*) — scroll-story landing */
-.rj-subsection { margin-bottom: 56px; }
-.rj-h2 { font-family: var(--serif); font-size: 28px; font-weight: 600; color: var(--navy); margin-bottom: 14px; letter-spacing: -0.01em; }
+/* FINANCING SOLUTIONS TAB (rj-*) — scroll-story landing (mobile-first) */
+.rj-subsection { margin-bottom: 64px; position: relative; }
+.rj-chapter { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.rj-chapter::after { content: ''; flex: 0 1 64px; height: 1px; background: var(--accent); opacity: .35; }
+.rj-h2 { font-family: var(--serif); font-size: clamp(26px, 6.6vw, 36px); font-weight: 600; color: var(--navy); margin-bottom: 14px; letter-spacing: -0.01em; }
 .rj-lead { font-size: 15px; color: var(--text-secondary); margin-bottom: 18px; max-width: 760px; line-height: 1.6; }
 .rj-sub { font-size: 13px; color: var(--text-secondary); margin-bottom: 14px; }
 .rj-grid-dark.sfgs-grid { background: transparent; border-radius: 0; padding: 0; margin-top: 0; display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 16px; }
@@ -207,20 +209,36 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
 .rj-card-dark.sfgs-card .label { color: var(--text-muted); font-size: 11px; }
 .rj-card-dark.sfgs-card .sub { color: var(--text-secondary); margin-top: 4px; }
 
+/* masked line reveals (Trionn-style) */
+.rj-mask { display: block; overflow: hidden; }
+.rj-line { display: block; will-change: transform; }
+
 /* ===== HERO ===== */
-.rj-hero { position: relative; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; padding: 60px 0 40px; overflow: hidden; }
-.rj-hero-blob { position: absolute; top: -10%; right: -10%; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, var(--accent-pale) 0%, rgba(237,242,254,0) 70%); pointer-events: none; z-index: 0; will-change: transform; }
-.rj-hero-inner { position: relative; z-index: 1; max-width: 900px; }
-.rj-eyebrow { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: block; }
-.rj-hero-title { font-family: var(--serif); font-weight: 600; font-size: clamp(40px, 7vw, 88px); line-height: 1.05; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 24px; }
-.rj-hero-sub { font-size: 17px; line-height: 1.65; color: var(--text-secondary); max-width: 620px; margin-bottom: 40px; }
-.rj-hero-steps { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 56px; }
-.rj-hero-chip { display: flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid var(--border); border-radius: 999px; padding: 8px 16px 8px 8px; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--text-primary); transition: all .2s; box-shadow: var(--shadow); }
+.rj-hero { position: relative; min-height: calc(100vh - 128px); min-height: calc(100svh - 128px); display: flex; flex-direction: column; padding: 36px 0 14px; overflow: hidden; }
+.rj-hero-blob { position: absolute; top: -12%; right: -18%; width: min(720px, 95vw); height: min(720px, 95vw); border-radius: 50%; background: radial-gradient(circle, var(--accent-pale) 0%, rgba(237,242,254,0) 70%); pointer-events: none; z-index: 0; will-change: transform; }
+.rj-hero-grid { position: absolute; top: 0; right: 0; width: min(520px, 85vw); height: min(400px, 70vw); background-image: radial-gradient(var(--border) 1.2px, transparent 1.2px); background-size: 22px 22px; -webkit-mask-image: radial-gradient(ellipse at top right, #000 25%, transparent 72%); mask-image: radial-gradient(ellipse at top right, #000 25%, transparent 72%); opacity: .6; pointer-events: none; z-index: 0; }
+.rj-hero-ghost { position: absolute; right: -3%; top: 4%; z-index: 0; font-family: var(--serif); font-weight: 600; font-size: clamp(150px, 44vw, 340px); line-height: .8; color: var(--accent); opacity: .07; pointer-events: none; user-select: none; }
+.rj-hero-inner { position: relative; z-index: 1; max-width: 900px; margin: auto 0; }
+.rj-eyebrow { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; display: block; }
+.rj-hero-title { font-family: var(--serif); font-weight: 600; font-size: clamp(38px, 9.8vw, 92px); line-height: 1.04; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 18px; }
+.rj-hero-sub { font-size: 15px; line-height: 1.65; color: var(--text-secondary); max-width: 620px; margin-bottom: 26px; }
+.rj-hero-steps { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; margin-bottom: 8px; max-width: 560px; }
+.rj-hero-chip { display: flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid var(--border); border-radius: 999px; padding: 11px 14px 11px 9px; min-height: 44px; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--text-primary); transition: all .2s; box-shadow: var(--shadow); }
 .rj-hero-chip:hover { border-color: var(--accent); transform: translateY(-1px); }
-.rj-hero-chip .num { font-family: var(--mono); font-size: 11px; font-weight: 700; background: var(--navy); color: var(--white); border-radius: 999px; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.rj-scroll-cue { display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--text-muted); font-size: 11px; font-family: var(--mono); animation: rj-bob 2s ease-in-out infinite; }
+.rj-hero-chip .num { font-family: var(--mono); font-size: 11px; font-weight: 700; background: var(--navy); color: var(--white); border-radius: 999px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.rj-hero-strip { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; border-top: 1px solid var(--border); padding-top: 16px; margin-top: 26px; }
+.rj-strip-num { font-family: var(--mono); font-weight: 700; font-size: clamp(19px, 5.4vw, 28px); color: var(--navy); display: block; line-height: 1.1; }
+.rj-strip-label { font-size: 10.5px; color: var(--text-muted); margin-top: 3px; display: block; line-height: 1.35; }
+.rj-scroll-cue { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--text-muted); font-size: 11px; font-family: var(--mono); margin-top: 14px; animation: rj-bob 2s ease-in-out infinite; }
 @keyframes rj-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 @media (prefers-reduced-motion: reduce) { .rj-scroll-cue { animation: none; } }
+@media (min-width: 769px) {
+  .rj-hero { min-height: 74vh; padding: 56px 0 18px; }
+  .rj-hero-sub { font-size: 17px; margin-bottom: 34px; }
+  .rj-hero-steps { display: flex; flex-wrap: wrap; max-width: none; }
+  .rj-hero-strip { max-width: 640px; margin-top: 40px; }
+  .rj-hero-ghost { right: 2%; top: 8%; }
+}
 
 /* ===== STATS BAND ===== */
 .rj-stats { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 56px; }
@@ -247,69 +265,70 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
 .rj-loan-stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
 .rj-loan-body { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
 
-/* bank-tier selector */
-.rj-tier-grid { display: flex; flex-direction: column; gap: 12px; }
-.rj-tier-col { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
-.rj-tier-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 20px; background: none; border: none; cursor: pointer; text-align: left; font-family: inherit; }
-.rj-tier-toggle-left { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.rj-tier-name { font-family: var(--serif); font-size: 19px; font-weight: 600; color: var(--navy); }
+/* bank-tier selector — all three visible at once */
+.rj-tier-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.rj-tier-col { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px 20px; display: flex; flex-direction: column; transition: box-shadow .2s, transform .2s; }
+.rj-tier-col:hover { box-shadow: 0 4px 10px rgba(11,18,32,.08), 0 20px 40px rgba(11,18,32,.10); transform: translateY(-2px); }
+.rj-tier-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.rj-tier-name { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--navy); }
 .rj-tier-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .rj-tier-pill { background: var(--blue-bg); color: var(--blue); font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.03em; }
 .rj-tier-turnaround { font-family: var(--mono); font-size: 11px; color: var(--text-muted); font-weight: 700; }
-.rj-tier-chevron { color: var(--text-muted); font-size: 14px; transition: transform .3s; flex-shrink: 0; }
-.rj-tier-col.open .rj-tier-chevron { transform: rotate(180deg); color: var(--accent); }
-.rj-tier-body { max-height: 0; overflow: hidden; transition: max-height .45s ease; }
-.rj-tier-col.open .rj-tier-body { max-height: 420px; }
-.rj-tier-body-inner { padding: 0 20px 22px; }
 .rj-tier-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 14px; line-height: 1.55; }
-.rj-tier-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-.rj-chip { background: var(--off-white); color: var(--navy-light); border: 1px solid var(--border); font-size: 11px; padding: 5px 12px; border-radius: 999px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+.rj-tier-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.rj-chip { background: var(--off-white); color: var(--navy-light); border: 1px solid var(--border); font-size: 11px; padding: 8px 13px; border-radius: 999px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
 .rj-chip:hover { background: var(--accent); color: var(--white); border-color: var(--accent); }
-.rj-tier-tagline { font-size: 11px; font-weight: 700; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px; }
-.rj-tier-link { display: inline-block; margin-top: 2px; margin-right: 18px; background: none; border: none; color: var(--navy); font-size: 12px; font-weight: 700; cursor: pointer; padding: 0; text-decoration: underline; }
+.rj-tier-tagline { font-size: 11px; font-weight: 700; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 12px; margin-top: auto; }
+.rj-tier-link { display: inline-block; margin-top: 2px; margin-right: 18px; background: none; border: none; color: var(--navy); font-size: 12px; font-weight: 700; cursor: pointer; padding: 6px 0; text-decoration: underline; }
 .rj-tier-link:hover { color: var(--accent); }
+@media (min-width: 900px) { .rj-tier-grid { grid-template-columns: repeat(3,1fr); } }
 
-/* ===== APPLICATION JOURNEY ===== */
-.rj-journey-layout { display: grid; grid-template-columns: 300px 1fr; gap: 48px; }
-.rj-journey-rail { position: sticky; top: 100px; align-self: start; height: fit-content; }
-.rj-journey-track { position: relative; display: flex; gap: 16px; margin-top: 28px; }
-.rj-journey-line { position: relative; width: 2px; background: var(--border); border-radius: 2px; }
-.rj-journey-line-fill { position: absolute; top: 0; left: 0; width: 100%; height: 0%; background: var(--accent); border-radius: 2px; transition: height .1s linear; }
-.rj-journey-dots { display: flex; flex-direction: column; justify-content: space-between; }
-.rj-journey-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); margin-left: -6px; transition: background .3s; }
-.rj-journey-dot.done { background: var(--accent); }
-.rj-journey-steps { display: flex; flex-direction: column; gap: 20px; }
-.rj-step { background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--border); border-radius: var(--radius); padding: 24px 24px; box-shadow: var(--shadow); position: relative; transition: border-color .3s; }
-.rj-step.active { border-left-color: var(--accent); }
-.rj-step-num { font-family: var(--mono); font-weight: 700; font-size: 28px; color: var(--border); line-height: 1; margin-bottom: 12px; transition: color .3s; display: block; width: auto; height: auto; background: none; }
-.rj-step.active .rj-step-num { color: var(--accent); }
-.rj-step-title { font-family: var(--serif); font-size: 19px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
-.rj-step-body { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
-.rj-step-link { display: inline-block; margin-top: 10px; background: none; border: none; color: var(--accent); font-size: 12px; font-weight: 700; cursor: pointer; padding: 0; text-decoration: underline; }
+/* ===== APPLICATION JOURNEY — scene-based ===== */
+/* Static (no-GSAP / reduced-motion) layout: stacked scene cards */
+.rj-scenes { position: relative; display: flex; flex-direction: column; gap: 18px; }
+.rj-scene { position: relative; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 30px 22px; overflow: hidden; }
+.rj-scene-ghost { position: absolute; right: -8px; top: -16px; z-index: 0; font-family: var(--mono); font-weight: 700; font-size: 100px; line-height: 1; color: var(--accent-pale); user-select: none; pointer-events: none; }
+.rj-scene-inner { position: relative; z-index: 1; max-width: 680px; }
+.rj-scene-kicker { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--accent); display: block; margin-bottom: 10px; }
+.rj-scene-title { font-family: var(--serif); font-size: clamp(24px, 6.4vw, 42px); font-weight: 600; color: var(--navy); line-height: 1.1; margin-bottom: 12px; letter-spacing: -0.01em; }
+.rj-scene-body { font-size: 14px; color: var(--text-secondary); line-height: 1.7; max-width: 560px; }
+.rj-step-link { display: inline-block; margin-top: 14px; background: none; border: none; color: var(--accent); font-size: 13px; font-weight: 700; cursor: pointer; padding: 10px 0; text-decoration: underline; }
 .rj-step-link:hover { color: var(--accent-dark); }
+.rj-pin-rail { display: none; }
+/* Pinned scene mode (added by JS when GSAP+motion available) */
+.rj-pin-mode .rj-scenes { display: block; height: calc(100vh - 150px); height: calc(100svh - 150px); min-height: 420px; }
+.rj-pin-mode .rj-scene { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; background: transparent; border: none; box-shadow: none; border-radius: 0; padding: 0 0 0 26px; opacity: 0; visibility: hidden; will-change: transform, opacity; }
+.rj-pin-mode .rj-scene-ghost { right: auto; left: -8px; top: 50%; transform: translateY(-58%); font-size: clamp(150px, 48vw, 320px); opacity: .55; }
+.rj-pin-mode .rj-scene-inner { transform: translateZ(0); }
+.rj-pin-mode .rj-scene-body { font-size: 15px; }
+.rj-pin-mode .rj-pin-rail { display: block; position: absolute; left: 2px; top: 6%; bottom: 6%; width: 2px; background: var(--border); border-radius: 2px; z-index: 2; }
+.rj-pin-fill { position: absolute; top: 0; left: 0; width: 100%; height: 0%; background: var(--accent); border-radius: 2px; }
+.rj-pin-dot { position: absolute; left: -4px; width: 10px; height: 10px; border-radius: 50%; background: var(--border); border: 2px solid var(--off-white); transition: background .3s; }
+.rj-pin-dot.done { background: var(--accent); }
+@media (min-width: 769px) {
+  .rj-pin-mode .rj-scene { padding-left: 56px; }
+  .rj-pin-mode .rj-pin-rail { left: 8px; }
+}
 
 /* closing line */
 .rj-closing { font-size: 13px; color: var(--text-secondary); border-top: 1px solid var(--border); padding-top: 20px; margin-top: 8px; font-family: var(--serif); font-size: 16px; }
 .rj-closing a { color: var(--accent); font-weight: 700; text-decoration: underline; cursor: pointer; margin-left: 4px; }
 .rj-closing a:hover { color: var(--accent-dark); }
 
-/* scroll-reveal */
+/* scroll-reveal (IntersectionObserver fallback when GSAP is unavailable) */
 .rj-reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
 .rj-reveal.visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .rj-reveal { opacity: 1; transform: none; transition: none; } }
+/* GSAP takes ownership: kill CSS-driven hiding/transitions so they can't fight the timelines */
+.rj-gsap .rj-reveal { opacity: 1; transform: none; transition: none; }
 
 @media(max-width:768px){
-  .rj-hero { min-height: 60vh; padding: 40px 0 32px; }
-  .rj-hero-blob { width: 400px; height: 400px; }
   .rj-stats { grid-template-columns: 1fr 1fr; }
   .rj-stat { border-left: none; border-top: 1px solid var(--border); }
   .rj-stat:nth-child(1), .rj-stat:nth-child(2) { border-top: none; }
   .rj-stat:nth-child(even) { border-left: 1px solid var(--border); }
-  .rj-journey-layout { grid-template-columns: 1fr; gap: 0; }
-  .rj-journey-rail { position: static; display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
-  .rj-journey-track { display: none; }
-  .rj-step { border-left: 3px solid var(--border); }
   .rj-loan-stat { font-size: 19px; }
+  .rj-subsection { margin-bottom: 52px; }
 }
 </style>
 </head>
@@ -354,11 +373,13 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
   <!-- HERO -->
   <div class="rj-hero">
     <div class="rj-hero-blob" id="rj-parallax"></div>
+    <div class="rj-hero-grid" aria-hidden="true"></div>
+    <div class="rj-hero-ghost" aria-hidden="true">04</div>
     <div class="rj-hero-inner">
       <span class="rj-eyebrow en-content">HONG KONG &middot; SME FINANCING &middot; 2026</span>
       <span class="rj-eyebrow zh-content" style="display:none">香港 &middot; 中小企融資 &middot; 2026</span>
-      <h1 class="rj-hero-title en-content">Four steps between your business and its funding.</h1>
-      <h1 class="rj-hero-title zh-content" style="display:none">由申請到放款，只需四個步驟</h1>
+      <h1 class="rj-hero-title en-content"><span class="rj-mask"><span class="rj-line">Four steps between</span></span><span class="rj-mask"><span class="rj-line">your business</span></span><span class="rj-mask"><span class="rj-line">and its funding.</span></span></h1>
+      <h1 class="rj-hero-title zh-content" style="display:none"><span class="rj-mask"><span class="rj-line">由申請到放款，</span></span><span class="rj-mask"><span class="rj-line">只需四個步驟</span></span></h1>
       <p class="rj-hero-sub en-content">A clear guide to corporate loans and credit lines in Hong Kong — what to prepare, where to apply, and how approval actually works.</p>
       <p class="rj-hero-sub zh-content" style="display:none">香港企業貸款及信貸額度實用指南——該準備甚麼、向哪間銀行申請、審批如何運作。</p>
       <div class="rj-hero-steps">
@@ -375,10 +396,27 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           <span class="num">04</span><span class="en-content">Funding</span><span class="zh-content" style="display:none">批出放款</span>
         </div>
       </div>
-      <div class="rj-scroll-cue">
-        <span class="en-content">SCROLL</span><span class="zh-content" style="display:none">向下捲動</span>
-        <span>&darr;</span>
+      <div class="rj-hero-strip">
+        <div class="rj-strip-item">
+          <span class="rj-strip-num">HK$18M</span>
+          <span class="rj-strip-label en-content">Max loan (SFGS 80%)</span>
+          <span class="rj-strip-label zh-content" style="display:none">最高貸款額（SFGS 80%）</span>
+        </div>
+        <div class="rj-strip-item">
+          <span class="rj-strip-num">26</span>
+          <span class="rj-strip-label en-content">Banks compared</span>
+          <span class="rj-strip-label zh-content" style="display:none">銀行比較</span>
+        </div>
+        <div class="rj-strip-item">
+          <span class="rj-strip-num">1&ndash;2<span style="font-size:.6em"> wks</span></span>
+          <span class="rj-strip-label en-content">Fastest approval</span>
+          <span class="rj-strip-label zh-content" style="display:none">最快審批</span>
+        </div>
       </div>
+    </div>
+    <div class="rj-scroll-cue">
+      <span class="en-content">SCROLL</span><span class="zh-content" style="display:none">向下捲動</span>
+      <span>&darr;</span>
     </div>
   </div>
 
@@ -414,24 +452,25 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
 
   <!-- Why financing still stalls -->
   <div class="rj-subsection">
-    <h2 class="rj-h2 en-content">Why financing still stalls</h2>
-    <h2 class="rj-h2 zh-content" style="display:none">為何融資仍然受阻</h2>
+    <div class="rj-chapter"><span class="en-content">01 &mdash; The problem</span><span class="zh-content" style="display:none">01 &mdash; 問題</span></div>
+    <h2 class="rj-h2 en-content"><span class="rj-mask"><span class="rj-line">Why financing still stalls</span></span></h2>
+    <h2 class="rj-h2 zh-content" style="display:none"><span class="rj-mask"><span class="rj-line">為何融資仍然受阻</span></span></h2>
     <p class="rj-lead en-content">40%+ of SME loan applications are delayed, reduced, or rejected — even though banks are not short of capital.</p>
     <p class="rj-lead zh-content" style="display:none">40%以上的中小企貸款申請面臨延遲、減額甚至被拒絕——即使銀行資金充裕。</p>
     <div class="sfgs-grid rj-grid-dark">
-      <div class="sfgs-card rj-card-dark rj-reveal" style="transition-delay:0s">
+      <div class="sfgs-card rj-card-dark rj-seq rj-reveal" style="transition-delay:0s">
         <div class="label en-content">Messy financials</div>
         <div class="label zh-content" style="display:none">財務報表混亂</div>
         <div class="sub en-content">Unbalanced accounts and weak cash-flow presentation make credit teams back off — and can dent your credit rating.</div>
         <div class="sub zh-content" style="display:none">未平帳目與欠佳的現金流呈現令信貸部門卻步，並可能影響信貸評級。</div>
       </div>
-      <div class="sfgs-card rj-card-dark rj-reveal" style="transition-delay:0.1s">
+      <div class="sfgs-card rj-card-dark rj-seq rj-reveal" style="transition-delay:0.1s">
         <div class="label en-content">Applying to the wrong bank</div>
         <div class="label zh-content" style="display:none">申錯銀行</div>
         <div class="sub en-content">Each bank has hidden industry preferences. A mismatched application is rejected — and the record affects your score.</div>
         <div class="sub zh-content" style="display:none">每間銀行對行業各有隱藏偏好。申錯對象會被拒絕，記錄更會影響評分。</div>
       </div>
-      <div class="sfgs-card rj-card-dark rj-reveal" style="transition-delay:0.2s">
+      <div class="sfgs-card rj-card-dark rj-seq rj-reveal" style="transition-delay:0.2s">
         <div class="label en-content">Time drain</div>
         <div class="label zh-content" style="display:none">耗費時間</div>
         <div class="sub en-content">Weeks spent on paperwork is time not spent running the business.</div>
@@ -442,22 +481,23 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
 
   <!-- What improves approval odds -->
   <div class="rj-subsection">
-    <h2 class="rj-h2 en-content">What improves approval odds</h2>
-    <h2 class="rj-h2 zh-content" style="display:none">如何提高獲批機會</h2>
+    <div class="rj-chapter"><span class="en-content">02 &mdash; What helps</span><span class="zh-content" style="display:none">02 &mdash; 對策</span></div>
+    <h2 class="rj-h2 en-content"><span class="rj-mask"><span class="rj-line">What improves approval odds</span></span></h2>
+    <h2 class="rj-h2 zh-content" style="display:none"><span class="rj-mask"><span class="rj-line">如何提高獲批機會</span></span></h2>
     <div class="rj-card-grid">
-      <div class="rj-card rj-reveal" style="transition-delay:0s">
+      <div class="rj-card rj-seq rj-reveal" style="transition-delay:0s">
         <div class="rj-card-title en-content">Clean, well-structured accounts</div>
         <div class="rj-card-title zh-content" style="display:none">帳目整理與規範</div>
         <div class="rj-card-body en-content">Reorganized management accounts, MPF records and bank statements that meet banks' documentation bar.</div>
         <div class="rj-card-body zh-content" style="display:none">重整管理帳目、強積金紀錄及銀行流水，達到銀行的文件要求。</div>
       </div>
-      <div class="rj-card rj-reveal" style="transition-delay:0.1s">
+      <div class="rj-card rj-seq rj-reveal" style="transition-delay:0.1s">
         <div class="rj-card-title en-content">Match the right bank tier</div>
         <div class="rj-card-title zh-content" style="display:none">配對合適的銀行層級</div>
         <div class="rj-card-body en-content">Target the bank tier that fits your profile and industry instead of applying blindly.</div>
         <div class="rj-card-body zh-content" style="display:none">針對符合您行業與狀況的銀行層級提交，而非盲目申請。</div>
       </div>
-      <div class="rj-card rj-reveal" style="transition-delay:0.2s">
+      <div class="rj-card rj-seq rj-reveal" style="transition-delay:0.2s">
         <div class="rj-card-title en-content">Structure for the maximum limit</div>
         <div class="rj-card-title zh-content" style="display:none">爭取最高額度</div>
         <div class="rj-card-body en-content">Present assets and revenue history to support the highest eligible amount, not the lowest default offer.</div>
@@ -468,10 +508,11 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
 
   <!-- 2026 loan options -->
   <div class="rj-subsection">
-    <h2 class="rj-h2 en-content">2026 loan options</h2>
-    <h2 class="rj-h2 zh-content" style="display:none">2026年主流貸款選項</h2>
+    <div class="rj-chapter"><span class="en-content">03 &mdash; The options</span><span class="zh-content" style="display:none">03 &mdash; 選項</span></div>
+    <h2 class="rj-h2 en-content"><span class="rj-mask"><span class="rj-line">2026 loan options</span></span></h2>
+    <h2 class="rj-h2 zh-content" style="display:none"><span class="rj-mask"><span class="rj-line">2026年主流貸款選項</span></span></h2>
     <div class="rj-loan-grid">
-      <div class="rj-loan-card rj-featured rj-reveal" style="transition-delay:0s">
+      <div class="rj-loan-card rj-featured rj-seq rj-reveal" style="transition-delay:0s">
         <div class="rj-badge en-content">Top pick</div>
         <div class="rj-badge zh-content" style="display:none">首選</div>
         <div class="rj-loan-title en-content">SFGS 80% guarantee</div>
@@ -482,19 +523,19 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
         <div class="rj-loan-body en-content">For businesses operating 1+ year (3+ best). Max HKD 18M, up to 10 years. Extended to 31 March 2028.</div>
         <div class="rj-loan-body zh-content" style="display:none">適合營運1年以上（3年以上最佳）。最高港幣1,800萬，最長10年，延長至2028年3月。</div>
       </div>
-      <div class="rj-loan-card rj-reveal" style="transition-delay:0.1s">
+      <div class="rj-loan-card rj-seq rj-reveal" style="transition-delay:0.1s">
         <div class="rj-loan-title en-content">Unsecured installment loan</div>
         <div class="rj-loan-title zh-content" style="display:none">無抵押商業分期貸款</div>
         <div class="rj-loan-body en-content">For profitable businesses needing fast cash flow. No collateral, ~HKD 1M–3M.</div>
         <div class="rj-loan-body zh-content" style="display:none">適合需要快速現金流的盈利企業。無需抵押，約港幣100萬–300萬。</div>
       </div>
-      <div class="rj-loan-card rj-reveal" style="transition-delay:0.2s">
+      <div class="rj-loan-card rj-seq rj-reveal" style="transition-delay:0.2s">
         <div class="rj-loan-title en-content">Revolving &amp; trade finance</div>
         <div class="rj-loan-title zh-content" style="display:none">循環貸款及貿易融資</div>
         <div class="rj-loan-body en-content">Flexible standby cash flow — interest only when drawn. Suits seasonal needs.</div>
         <div class="rj-loan-body zh-content" style="display:none">靈活備用現金流，動用才計息，適合季節性需求。</div>
       </div>
-      <div class="rj-loan-card rj-reveal" style="transition-delay:0.3s">
+      <div class="rj-loan-card rj-seq rj-reveal" style="transition-delay:0.3s">
         <div class="rj-loan-title en-content">Data-driven alt-lending</div>
         <div class="rj-loan-title zh-content" style="display:none">數據驅動替代貸款</div>
         <div class="rj-loan-body en-content">For startups (&lt;2 yrs) or retail/F&amp;B. Underwritten on POS/credit-card data — no audited report.</div>
@@ -505,105 +546,87 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
 
   <!-- Which bank tier fits you -->
   <div class="rj-subsection" id="rj-tiers">
-    <h2 class="rj-h2 en-content">Which bank tier fits you</h2>
-    <h2 class="rj-h2 zh-content" style="display:none">哪一層級銀行適合您</h2>
+    <div class="rj-chapter"><span class="en-content">04 &mdash; The banks</span><span class="zh-content" style="display:none">04 &mdash; 銀行</span></div>
+    <h2 class="rj-h2 en-content"><span class="rj-mask"><span class="rj-line">Which bank tier fits you</span></span></h2>
+    <h2 class="rj-h2 zh-content" style="display:none"><span class="rj-mask"><span class="rj-line">哪一層級銀行適合您</span></span></h2>
     <p class="rj-sub en-content">These tiers map onto the banks in the Bank Comparison tab — click a bank to jump there.</p>
     <p class="rj-sub zh-content" style="display:none">各層級對應「銀行比較」分頁中的銀行——點擊即可跳轉。</p>
     <div class="rj-tier-grid">
-      <div class="rj-tier-col open">
-        <button class="rj-tier-toggle" aria-expanded="true">
-          <div class="rj-tier-toggle-left">
-            <span class="rj-tier-name en-content">Tier-1 traditional</span>
-            <span class="rj-tier-name zh-content" style="display:none">一線傳統銀行</span>
-            <span class="rj-tier-meta">
-              <span class="rj-tier-pill en-content">Very strict</span>
-              <span class="rj-tier-pill zh-content" style="display:none">極嚴格</span>
-              <span class="rj-tier-turnaround en-content">4&ndash;8 weeks</span>
-              <span class="rj-tier-turnaround zh-content" style="display:none">4&ndash;8 週</span>
-            </span>
-          </div>
-          <span class="rj-tier-chevron">&#9660;</span>
-        </button>
-        <div class="rj-tier-body">
-          <div class="rj-tier-body-inner">
-            <div class="rj-tier-desc en-content">Perfect audited accounts. Best for mature firms (3+ yrs) chasing large, low-cost loans.</div>
-            <div class="rj-tier-desc zh-content" style="display:none">需完美核數報告，適合追求大額低息的成熟企業（3年以上）。</div>
-            <div class="rj-tier-chips">
-              <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">HSBC Hong Kong</button>
-              <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">Bank of China HK</button>
-              <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">Hang Seng Bank</button>
-            </div>
-            <div class="rj-tier-tagline en-content">Large, low-cost loans</div>
-            <div class="rj-tier-tagline zh-content" style="display:none">大額低息之選</div>
-            <button class="rj-tier-link" onclick="goToTab('banks')" style="cursor:pointer">
-              <span class="en-content">Compare in table &rarr;</span><span class="zh-content" style="display:none">在比較表查看 &rarr;</span>
-            </button>
-          </div>
+      <div class="rj-tier-col rj-seq rj-reveal" style="transition-delay:0s">
+        <div class="rj-tier-head">
+          <span class="rj-tier-name en-content">Tier-1 traditional</span>
+          <span class="rj-tier-name zh-content" style="display:none">一線傳統銀行</span>
+          <span class="rj-tier-meta">
+            <span class="rj-tier-pill en-content">Very strict</span>
+            <span class="rj-tier-pill zh-content" style="display:none">極嚴格</span>
+            <span class="rj-tier-turnaround en-content">4&ndash;8 weeks</span>
+            <span class="rj-tier-turnaround zh-content" style="display:none">4&ndash;8 週</span>
+          </span>
         </div>
-      </div>
-      <div class="rj-tier-col">
-        <button class="rj-tier-toggle" aria-expanded="false">
-          <div class="rj-tier-toggle-left">
-            <span class="rj-tier-name en-content">Tier-2 commercial</span>
-            <span class="rj-tier-name zh-content" style="display:none">二線商業銀行</span>
-            <span class="rj-tier-meta">
-              <span class="rj-tier-pill en-content">Medium</span>
-              <span class="rj-tier-pill zh-content" style="display:none">中等</span>
-              <span class="rj-tier-turnaround en-content">3&ndash;6 weeks</span>
-              <span class="rj-tier-turnaround zh-content" style="display:none">3&ndash;6 週</span>
-            </span>
-          </div>
-          <span class="rj-tier-chevron">&#9660;</span>
-        </button>
-        <div class="rj-tier-body">
-          <div class="rj-tier-body-inner">
-            <div class="rj-tier-desc en-content">Accepts good management accounts. For specific industries or flexible terms.</div>
-            <div class="rj-tier-desc zh-content" style="display:none">接受質素良好的管理帳目，適合特定行業或需彈性條款。</div>
-            <div class="rj-tier-chips">
-              <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">DBS Hong Kong</button>
-              <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">Bank of East Asia</button>
-              <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">Dah Sing Bank</button>
-            </div>
-            <div class="rj-tier-tagline en-content">Flexible terms</div>
-            <div class="rj-tier-tagline zh-content" style="display:none">彈性條款之選</div>
-            <button class="rj-tier-link" onclick="goToTab('banks')" style="cursor:pointer">
-              <span class="en-content">Compare in table &rarr;</span><span class="zh-content" style="display:none">在比較表查看 &rarr;</span>
-            </button>
-          </div>
+        <div class="rj-tier-desc en-content">Perfect audited accounts. Best for mature firms (3+ yrs) chasing large, low-cost loans.</div>
+        <div class="rj-tier-desc zh-content" style="display:none">需完美核數報告，適合追求大額低息的成熟企業（3年以上）。</div>
+        <div class="rj-tier-chips">
+          <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">HSBC Hong Kong</button>
+          <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">Bank of China HK</button>
+          <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">Hang Seng Bank</button>
         </div>
-      </div>
-      <div class="rj-tier-col">
-        <button class="rj-tier-toggle" aria-expanded="false">
-          <div class="rj-tier-toggle-left">
-            <span class="rj-tier-name en-content">Virtual banks</span>
-            <span class="rj-tier-name zh-content" style="display:none">虛擬銀行</span>
-            <span class="rj-tier-meta">
-              <span class="rj-tier-pill en-content">Most flexible</span>
-              <span class="rj-tier-pill zh-content" style="display:none">最靈活</span>
-              <span class="rj-tier-turnaround en-content">1&ndash;2 weeks</span>
-              <span class="rj-tier-turnaround zh-content" style="display:none">1&ndash;2 週</span>
-            </span>
-          </div>
-          <span class="rj-tier-chevron">&#9660;</span>
+        <div class="rj-tier-tagline en-content">Large, low-cost loans</div>
+        <div class="rj-tier-tagline zh-content" style="display:none">大額低息之選</div>
+        <button class="rj-tier-link" onclick="goToTab('banks')" style="cursor:pointer">
+          <span class="en-content">Compare in table &rarr;</span><span class="zh-content" style="display:none">在比較表查看 &rarr;</span>
         </button>
-        <div class="rj-tier-body">
-          <div class="rj-tier-body-inner">
-            <div class="rj-tier-desc en-content">Leans on real-time bank-statement data. For startups and firms without audited reports.</div>
-            <div class="rj-tier-desc zh-content" style="display:none">依賴實時銀行月結單數據，適合初創及缺乏核數報告的公司。</div>
-            <div class="rj-tier-chips">
-              <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">ZA Bank</button>
-              <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">PAObank / Ping An Digital Bank</button>
-              <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">livi Bank</button>
-            </div>
-            <div class="rj-tier-tagline en-content">Fast &amp; flexible</div>
-            <div class="rj-tier-tagline zh-content" style="display:none">快速靈活之選</div>
-            <button class="rj-tier-link" onclick="goToTab('banks','virtual')" style="cursor:pointer">
-              <span class="en-content">View virtual banks &rarr;</span><span class="zh-content" style="display:none">查看虛擬銀行 &rarr;</span>
-            </button>
-            <button class="rj-tier-link" onclick="goToTab('banks')" style="cursor:pointer">
-              <span class="en-content">Compare in table &rarr;</span><span class="zh-content" style="display:none">在比較表查看 &rarr;</span>
-            </button>
-          </div>
+      </div>
+      <div class="rj-tier-col rj-seq rj-reveal" style="transition-delay:0.1s">
+        <div class="rj-tier-head">
+          <span class="rj-tier-name en-content">Tier-2 commercial</span>
+          <span class="rj-tier-name zh-content" style="display:none">二線商業銀行</span>
+          <span class="rj-tier-meta">
+            <span class="rj-tier-pill en-content">Medium</span>
+            <span class="rj-tier-pill zh-content" style="display:none">中等</span>
+            <span class="rj-tier-turnaround en-content">3&ndash;6 weeks</span>
+            <span class="rj-tier-turnaround zh-content" style="display:none">3&ndash;6 週</span>
+          </span>
+        </div>
+        <div class="rj-tier-desc en-content">Accepts good management accounts. For specific industries or flexible terms.</div>
+        <div class="rj-tier-desc zh-content" style="display:none">接受質素良好的管理帳目，適合特定行業或需彈性條款。</div>
+        <div class="rj-tier-chips">
+          <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">DBS Hong Kong</button>
+          <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">Bank of East Asia</button>
+          <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">Dah Sing Bank</button>
+        </div>
+        <div class="rj-tier-tagline en-content">Flexible terms</div>
+        <div class="rj-tier-tagline zh-content" style="display:none">彈性條款之選</div>
+        <button class="rj-tier-link" onclick="goToTab('banks')" style="cursor:pointer">
+          <span class="en-content">Compare in table &rarr;</span><span class="zh-content" style="display:none">在比較表查看 &rarr;</span>
+        </button>
+      </div>
+      <div class="rj-tier-col rj-seq rj-reveal" style="transition-delay:0.2s">
+        <div class="rj-tier-head">
+          <span class="rj-tier-name en-content">Virtual banks</span>
+          <span class="rj-tier-name zh-content" style="display:none">虛擬銀行</span>
+          <span class="rj-tier-meta">
+            <span class="rj-tier-pill en-content">Most flexible</span>
+            <span class="rj-tier-pill zh-content" style="display:none">最靈活</span>
+            <span class="rj-tier-turnaround en-content">1&ndash;2 weeks</span>
+            <span class="rj-tier-turnaround zh-content" style="display:none">1&ndash;2 週</span>
+          </span>
+        </div>
+        <div class="rj-tier-desc en-content">Leans on real-time bank-statement data. For startups and firms without audited reports.</div>
+        <div class="rj-tier-desc zh-content" style="display:none">依賴實時銀行月結單數據，適合初創及缺乏核數報告的公司。</div>
+        <div class="rj-tier-chips">
+          <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">ZA Bank</button>
+          <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">PAObank / Ping An Digital Bank</button>
+          <button class="rj-chip" onclick="goToTab('banks')" style="cursor:pointer">livi Bank</button>
+        </div>
+        <div class="rj-tier-tagline en-content">Fast &amp; flexible</div>
+        <div class="rj-tier-tagline zh-content" style="display:none">快速靈活之選</div>
+        <div>
+          <button class="rj-tier-link" onclick="goToTab('banks','virtual')" style="cursor:pointer">
+            <span class="en-content">View virtual banks &rarr;</span><span class="zh-content" style="display:none">查看虛擬銀行 &rarr;</span>
+          </button>
+          <button class="rj-tier-link" onclick="goToTab('banks')" style="cursor:pointer">
+            <span class="en-content">Compare in table &rarr;</span><span class="zh-content" style="display:none">在比較表查看 &rarr;</span>
+          </button>
         </div>
       </div>
     </div>
@@ -611,53 +634,60 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
 
   <!-- The application journey -->
   <div class="rj-subsection" id="rj-journey">
-    <div class="rj-journey-layout">
-      <div class="rj-journey-rail">
-        <h2 class="rj-h2 en-content" style="margin-bottom:4px">The application journey</h2>
-        <h2 class="rj-h2 zh-content" style="display:none;margin-bottom:4px">申請全流程</h2>
-        <p class="rj-sub en-content">From first look to funds in the account.</p>
-        <p class="rj-sub zh-content" style="display:none">由初步評估到資金到帳。</p>
-        <div class="rj-journey-track">
-          <div class="rj-journey-line"><div class="rj-journey-line-fill" id="rj-line-fill"></div></div>
-          <div class="rj-journey-dots" id="rj-journey-dots">
-            <div class="rj-journey-dot" data-dot="0"></div>
-            <div class="rj-journey-dot" data-dot="1"></div>
-            <div class="rj-journey-dot" data-dot="2"></div>
-            <div class="rj-journey-dot" data-dot="3"></div>
-          </div>
+    <div class="rj-chapter"><span class="en-content">05 &mdash; The journey</span><span class="zh-content" style="display:none">05 &mdash; 流程</span></div>
+    <h2 class="rj-h2 en-content" style="margin-bottom:4px"><span class="rj-mask"><span class="rj-line">The application journey</span></span></h2>
+    <h2 class="rj-h2 zh-content" style="display:none;margin-bottom:4px"><span class="rj-mask"><span class="rj-line">申請全流程</span></span></h2>
+    <p class="rj-sub en-content">From first look to funds in the account — keep scrolling.</p>
+    <p class="rj-sub zh-content" style="display:none">由初步評估到資金到帳——繼續向下捲動。</p>
+    <div class="rj-scenes" id="rj-scenes">
+      <div class="rj-pin-rail" aria-hidden="true">
+        <div class="rj-pin-fill" id="rj-pin-fill"></div>
+        <div class="rj-pin-dot" style="top:0%" data-dot="0"></div>
+        <div class="rj-pin-dot" style="top:33.333%" data-dot="1"></div>
+        <div class="rj-pin-dot" style="top:66.666%" data-dot="2"></div>
+        <div class="rj-pin-dot" style="top:100%" data-dot="3"></div>
+      </div>
+      <div class="rj-scene" data-step="0">
+        <div class="rj-scene-ghost" aria-hidden="true">01</div>
+        <div class="rj-scene-inner">
+          <span class="rj-scene-kicker en-content">STEP 01 / 04</span><span class="rj-scene-kicker zh-content" style="display:none">步驟 01 / 04</span>
+          <div class="rj-scene-title en-content">Initial assessment</div>
+          <div class="rj-scene-title zh-content" style="display:none">初步評估</div>
+          <div class="rj-scene-body en-content">Review the latest management accounts and bank statements to estimate the realistic loan ceiling.</div>
+          <div class="rj-scene-body zh-content" style="display:none">審閱最新管理帳及銀行流水，預估真實貸款上限。</div>
         </div>
       </div>
-      <div class="rj-journey-steps" id="rj-journey-steps">
-        <div class="rj-step rj-reveal" style="transition-delay:0s" data-step="0">
-          <span class="rj-step-num">01</span>
-          <div class="rj-step-title en-content">Initial assessment</div>
-          <div class="rj-step-title zh-content" style="display:none">初步評估</div>
-          <div class="rj-step-body en-content">Review the latest management accounts and bank statements to estimate the realistic loan ceiling.</div>
-          <div class="rj-step-body zh-content" style="display:none">審閱最新管理帳及銀行流水，預估真實貸款上限。</div>
+      <div class="rj-scene" data-step="1">
+        <div class="rj-scene-ghost" aria-hidden="true">02</div>
+        <div class="rj-scene-inner">
+          <span class="rj-scene-kicker en-content">STEP 02 / 04</span><span class="rj-scene-kicker zh-content" style="display:none">步驟 02 / 04</span>
+          <div class="rj-scene-title en-content">Account preparation</div>
+          <div class="rj-scene-title zh-content" style="display:none">帳目準備</div>
+          <div class="rj-scene-body en-content">Balance the books and clarify expenses to produce a clean, bank-ready financial report.</div>
+          <div class="rj-scene-body zh-content" style="display:none">平帳並釐清開支，準備一份銀行可接受的財務報告。</div>
         </div>
-        <div class="rj-step rj-reveal" style="transition-delay:0.1s" data-step="1">
-          <span class="rj-step-num">02</span>
-          <div class="rj-step-title en-content">Account preparation</div>
-          <div class="rj-step-title zh-content" style="display:none">帳目準備</div>
-          <div class="rj-step-body en-content">Balance the books and clarify expenses to produce a clean, bank-ready financial report.</div>
-          <div class="rj-step-body zh-content" style="display:none">平帳並釐清開支，準備一份銀行可接受的財務報告。</div>
-        </div>
-        <div class="rj-step rj-reveal" style="transition-delay:0.2s" data-step="2">
-          <span class="rj-step-num">03</span>
-          <div class="rj-step-title en-content">Targeted document submission</div>
-          <div class="rj-step-title zh-content" style="display:none">針對性文件提交</div>
-          <div class="rj-step-body en-content">Prepare the right documents and submit to the 1–2 best-fit banks.</div>
-          <div class="rj-step-body zh-content" style="display:none">準備合適文件，向1–2間最匹配的銀行提交。</div>
+      </div>
+      <div class="rj-scene" data-step="2">
+        <div class="rj-scene-ghost" aria-hidden="true">03</div>
+        <div class="rj-scene-inner">
+          <span class="rj-scene-kicker en-content">STEP 03 / 04</span><span class="rj-scene-kicker zh-content" style="display:none">步驟 03 / 04</span>
+          <div class="rj-scene-title en-content">Targeted document submission</div>
+          <div class="rj-scene-title zh-content" style="display:none">針對性文件提交</div>
+          <div class="rj-scene-body en-content">Prepare the right documents and submit to the 1–2 best-fit banks.</div>
+          <div class="rj-scene-body zh-content" style="display:none">準備合適文件，向1–2間最匹配的銀行提交。</div>
           <button class="rj-step-link" onclick="showTab('docs')" style="cursor:pointer">
             <span class="en-content">View the full Document Checklist →</span><span class="zh-content" style="display:none">查看完整文件清單 →</span>
           </button>
         </div>
-        <div class="rj-step rj-reveal" style="transition-delay:0.3s" data-step="3">
-          <span class="rj-step-num">04</span>
-          <div class="rj-step-title en-content">Approval &amp; disbursement</div>
-          <div class="rj-step-title zh-content" style="display:none">批出及放款</div>
-          <div class="rj-step-body en-content">Follow up on every bank query until the funds land in your account.</div>
-          <div class="rj-step-body zh-content" style="display:none">跟進銀行所有提問，直至資金存入戶口。</div>
+      </div>
+      <div class="rj-scene" data-step="3">
+        <div class="rj-scene-ghost" aria-hidden="true">04</div>
+        <div class="rj-scene-inner">
+          <span class="rj-scene-kicker en-content">STEP 04 / 04</span><span class="rj-scene-kicker zh-content" style="display:none">步驟 04 / 04</span>
+          <div class="rj-scene-title en-content">Approval &amp; disbursement</div>
+          <div class="rj-scene-title zh-content" style="display:none">批出及放款</div>
+          <div class="rj-scene-body en-content">Follow up on every bank query until the funds land in your account.</div>
+          <div class="rj-scene-body zh-content" style="display:none">跟進銀行所有提問，直至資金存入戶口。</div>
         </div>
       </div>
     </div>
@@ -3686,6 +3716,8 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
 </footer>
 
 <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
 var currentLang = 'zh';
 var currentFilter = 'all';
@@ -3845,55 +3877,87 @@ if (typeof Lenis!=='undefined' && !rjReducedMotion){
   }
 })();
 
-/* ===== Application journey scroll progress ===== */
+/* ===== GSAP storytelling engine (Trionn-style) ===== */
 (function(){
-  var stepsContainer = document.getElementById('rj-journey-steps');
-  var lineFill = document.getElementById('rj-line-fill');
-  var dots = document.querySelectorAll('.rj-journey-dot');
-  var steps = document.querySelectorAll('#rj-journey-steps .rj-step');
-  if(!stepsContainer || !lineFill || !steps.length) return;
-  var ticking = false;
-  function updateJourney(){
-    ticking = false;
-    var rect = stepsContainer.getBoundingClientRect();
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    var total = rect.height - vh * 0.5;
-    var scrolled = (vh * 0.5) - rect.top;
-    var pct = total > 0 ? Math.max(0, Math.min(1, scrolled/total)) : 0;
-    lineFill.style.height = (pct*100) + '%';
-    steps.forEach(function(step, i){
-      var sRect = step.getBoundingClientRect();
-      var mid = vh * 0.5;
-      var passed = sRect.top < mid;
-      step.classList.toggle('active', passed && sRect.bottom > 0);
-      if(dots[i]) dots[i].classList.toggle('done', passed);
-    });
+  var hasGsap = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+  if(!hasGsap || rjReducedMotion){
+    /* Static path: .rj-reveal IO fallback (above) handles entrances; scenes render stacked. */
+    return;
   }
-  window.addEventListener('scroll', function(){
-    if(!ticking){ requestAnimationFrame(updateJourney); ticking = true; }
-  }, { passive: true });
-  window.addEventListener('resize', updateJourney);
-  updateJourney();
-})();
+  gsap.registerPlugin(ScrollTrigger);
+  document.documentElement.classList.add('rj-gsap');
+  if(typeof lenis !== 'undefined' && lenis){ lenis.on('scroll', ScrollTrigger.update); }
 
-/* ===== Tier selector toggles ===== */
-(function(){
-  var toggles = document.querySelectorAll('.rj-tier-toggle');
-  toggles.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var col = btn.closest('.rj-tier-col');
-      var wasOpen = col.classList.contains('open');
-      document.querySelectorAll('.rj-tier-col').forEach(function(c){
-        c.classList.remove('open');
-        var t = c.querySelector('.rj-tier-toggle');
-        if(t) t.setAttribute('aria-expanded','false');
-      });
-      if(!wasOpen){
-        col.classList.add('open');
-        btn.setAttribute('aria-expanded','true');
-      }
+  /* --- Hero entrance timeline --- */
+  var heroTl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+  heroTl.from('.rj-eyebrow', { y: 14, autoAlpha: 0, duration: .6 })
+    .from('.rj-hero-title .rj-line', { yPercent: 110, duration: 1, stagger: .12 }, '-=.3')
+    .from('.rj-hero-sub', { y: 20, autoAlpha: 0, duration: .7 }, '-=.55')
+    .from('.rj-hero-chip', { y: 16, autoAlpha: 0, duration: .5, stagger: .08 }, '-=.45')
+    .from('.rj-hero-strip', { y: 16, autoAlpha: 0, duration: .6 }, '-=.25')
+    .from('.rj-scroll-cue', { autoAlpha: 0, duration: .5 }, '-=.3')
+    .from('.rj-hero-ghost', { autoAlpha: 0, scale: .92, duration: 1.4, ease: 'power2.out' }, 0);
+
+  /* --- Section beats: chapter → masked heading → lead --- */
+  document.querySelectorAll('#panel-financing .rj-subsection').forEach(function(sec){
+    var chap = sec.querySelectorAll('.rj-chapter');
+    var lines = sec.querySelectorAll('.rj-h2 .rj-line');
+    var leads = sec.querySelectorAll('.rj-lead, .rj-sub');
+    var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: 'top 78%' } });
+    if(chap.length) tl.from(chap, { y: 12, autoAlpha: 0, duration: .5 });
+    if(lines.length) tl.from(lines, { yPercent: 110, duration: .9, stagger: .1, ease: 'power4.out' }, '-=.2');
+    if(leads.length) tl.from(leads, { y: 14, autoAlpha: 0, duration: .6 }, '-=.45');
+  });
+
+  /* --- Sequential idea cards: one by one --- */
+  gsap.utils.toArray('#panel-financing .rj-seq').forEach(function(card){
+    var idx = Array.prototype.indexOf.call(card.parentNode.children, card);
+    gsap.from(card, {
+      y: 30, autoAlpha: 0, duration: .7, ease: 'power3.out', delay: (idx % 4) * 0.1,
+      scrollTrigger: { trigger: card, start: 'top 88%' }
     });
   });
+
+  /* --- Stats band beat --- */
+  gsap.from('.rj-stat', {
+    y: 18, autoAlpha: 0, duration: .55, stagger: .13, ease: 'power2.out',
+    scrollTrigger: { trigger: '.rj-stats', start: 'top 82%' }
+  });
+
+  /* --- Pinned journey scenes --- */
+  var journey = document.getElementById('rj-journey');
+  var scenesWrap = document.getElementById('rj-scenes');
+  var scenes = gsap.utils.toArray('#rj-scenes .rj-scene');
+  var pinFill = document.getElementById('rj-pin-fill');
+  var pinDots = scenesWrap ? scenesWrap.querySelectorAll('.rj-pin-dot') : [];
+  if(journey && scenesWrap && scenes.length === 4){
+    journey.classList.add('rj-pin-mode');
+    gsap.set(scenes, { autoAlpha: 0 });
+    gsap.set(scenes[0], { autoAlpha: 1 });
+    var jtl = gsap.timeline({
+      scrollTrigger: {
+        trigger: scenesWrap, start: 'top top+=76', end: '+=300%',
+        pin: true, scrub: 0.5, anticipatePin: 1,
+        onUpdate: function(self){
+          if(pinFill) pinFill.style.height = (self.progress * 100) + '%';
+          var reached = Math.min(3, Math.floor(self.progress * 4));
+          pinDots.forEach(function(d, i){ d.classList.toggle('done', i <= reached); });
+        }
+      }
+    });
+    scenes.forEach(function(sc, i){
+      if(i === 0) return;
+      jtl.to(scenes[i-1], { autoAlpha: 0, yPercent: -7, duration: .38, ease: 'power2.in' }, i - 0.42)
+         .fromTo(scenes[i], { autoAlpha: 0, yPercent: 8 }, { autoAlpha: 1, yPercent: 0, duration: .38, ease: 'power2.out' }, i - 0.36)
+         .from(scenes[i].querySelector('.rj-scene-ghost'), { scale: .9, duration: .38, ease: 'power2.out' }, i - 0.36);
+    });
+    jtl.to({}, { duration: 0.6 }); /* hold on the final scene */
+  }
+
+  /* --- Keep ScrollTrigger measurements honest --- */
+  var _origShowTab = showTab;
+  showTab = function(id){ _origShowTab(id); try { ScrollTrigger.refresh(); } catch(e){} };
+  window.addEventListener('load', function(){ try { ScrollTrigger.refresh(); } catch(e){} });
 })();
 
 /* ===== Hero parallax blob ===== */
