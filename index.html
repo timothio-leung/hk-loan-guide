@@ -149,6 +149,17 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
 .status-closed { color: #ff8a80; }
 /* FOOTER */
 .site-footer { background: var(--navy); color: rgba(255,255,255,0.5); text-align: center; padding: 16px; font-size: 11px; margin-top: 40px; }
+/* MOBILE TABLE — hide Channel column so full table fits in landscape */
+@media(max-width:768px){
+  .col-channel { display: none; }
+  table { min-width: 0; table-layout: auto; }
+  td, thead th { padding: 8px 7px; }
+  .bank-name { font-size: 12px; }
+  .bank-type-badge { font-size: 9px; padding: 1px 5px; }
+  .btn-detail { padding: 4px 8px; font-size: 11px; }
+  .amount-cell { font-size: 12px; }
+  .stars-wrap { font-size: 13px; }
+}
 /* MOBILE */
 @media(max-width:600px){
   body { font-size: 13px; }
@@ -254,7 +265,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
           <th><span class="en-content">Max Loan</span><span class="zh-content" style="display:none">最高貸款額</span></th>
           <th><span class="en-content">SFGS</span><span class="zh-content" style="display:none">SFGS</span></th>
           <th><span class="en-content">Forms</span><span class="zh-content" style="display:none">表格</span></th>
-          <th><span class="en-content">Channel</span><span class="zh-content" style="display:none">申請渠道</span></th>
+          <th class="col-channel"><span class="en-content">Channel</span><span class="zh-content" style="display:none">申請渠道</span></th>
           <th></th>
         </tr>
       </thead>
@@ -278,7 +289,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / RM / Online (HSBC Business Banking)" data-zh="分行 / 客戶關係經理 / 網上（匯豐商業銀行）">Branch / RM / Online (HSBC Business Banking)</td>
+          <td class="channel-cell col-channel" data-en="Branch / RM / Online (HSBC Business Banking)" data-zh="分行 / 客戶關係經理 / 網上（匯豐商業銀行）">Branch / RM / Online (HSBC Business Banking)</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('hsbc')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -302,7 +313,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / RM / Straight2Bank portal" data-zh="分行 / 客戶關係經理 / Straight2Bank門戶">Branch / RM / Straight2Bank portal</td>
+          <td class="channel-cell col-channel" data-en="Branch / RM / Straight2Bank portal" data-zh="分行 / 客戶關係經理 / Straight2Bank門戶">Branch / RM / Straight2Bank portal</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('scb')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -326,7 +337,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / Online (SFGS 80%)" data-zh="分行 / 網上（SFGS 80%）">Branch / Online (SFGS 80%)</td>
+          <td class="channel-cell col-channel" data-en="Branch / Online (SFGS 80%)" data-zh="分行 / 網上（SFGS 80%）">Branch / Online (SFGS 80%)</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('hangseng')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -350,7 +361,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / RM" data-zh="分行 / 客戶關係經理">Branch / RM</td>
+          <td class="channel-cell col-channel" data-en="Branch / RM" data-zh="分行 / 客戶關係經理">Branch / RM</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('bochk')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -374,7 +385,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="DBS iBanking portal / Branch / RM" data-zh="星展網上銀行 / 分行 / 客戶關係經理">DBS iBanking portal / Branch / RM</td>
+          <td class="channel-cell col-channel" data-en="DBS iBanking portal / Branch / RM" data-zh="星展網上銀行 / 分行 / 客戶關係經理">DBS iBanking portal / Branch / RM</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('dbs')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -398,7 +409,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / Online" data-zh="分行 / 網上">Branch / Online</td>
+          <td class="channel-cell col-channel" data-en="Branch / Online" data-zh="分行 / 網上">Branch / Online</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('bea')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -422,7 +433,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / Online (SFGS Express)" data-zh="分行 / 網上（SFGS快遞）">Branch / Online (SFGS Express)</td>
+          <td class="channel-cell col-channel" data-en="Branch / Online (SFGS Express)" data-zh="分行 / 網上（SFGS快遞）">Branch / Online (SFGS Express)</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('ocbc')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -446,7 +457,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Relationship Manager only" data-zh="僅限客戶關係經理">Relationship Manager only</td>
+          <td class="channel-cell col-channel" data-en="Relationship Manager only" data-zh="僅限客戶關係經理">Relationship Manager only</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('citi')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -470,7 +481,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / Relationship Manager only" data-zh="分行 / 僅限客戶關係經理">Branch / Relationship Manager only</td>
+          <td class="channel-cell col-channel" data-en="Branch / Relationship Manager only" data-zh="分行 / 僅限客戶關係經理">Branch / Relationship Manager only</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('uob')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -494,7 +505,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Tradelink / Branch" data-zh="貿易通 / 分行">Tradelink / Branch</td>
+          <td class="channel-cell col-channel" data-en="Tradelink / Branch" data-zh="貿易通 / 分行">Tradelink / Branch</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('dahsing')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -518,7 +529,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / RM" data-zh="分行 / 客戶關係經理">Branch / RM</td>
+          <td class="channel-cell col-channel" data-en="Branch / RM" data-zh="分行 / 客戶關係經理">Branch / RM</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('cmbwl')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -542,7 +553,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / Hotline" data-zh="分行 / 熱線">Branch / Hotline</td>
+          <td class="channel-cell col-channel" data-en="Branch / Hotline" data-zh="分行 / 熱線">Branch / Hotline</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('scb_sh')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -566,7 +577,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch RM / Corporate Internet Banking" data-zh="分行客戶關係經理 / 企業網上銀行">Branch RM / Corporate Internet Banking</td>
+          <td class="channel-cell col-channel" data-en="Branch RM / Corporate Internet Banking" data-zh="分行客戶關係經理 / 企業網上銀行">Branch RM / Corporate Internet Banking</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('icbc')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -590,7 +601,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / Hotline / SME Centres" data-zh="分行 / 熱線 / 中小企服務中心">Branch / Hotline / SME Centres</td>
+          <td class="channel-cell col-channel" data-en="Branch / Hotline / SME Centres" data-zh="分行 / 熱線 / 中小企服務中心">Branch / Hotline / SME Centres</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('ccb')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -614,7 +625,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / Hotline" data-zh="分行 / 熱線">Branch / Hotline</td>
+          <td class="channel-cell col-channel" data-en="Branch / Hotline" data-zh="分行 / 熱線">Branch / Hotline</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('boccom')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -638,7 +649,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch" data-zh="分行">Branch</td>
+          <td class="channel-cell col-channel" data-en="Branch" data-zh="分行">Branch</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('ncb')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -662,7 +673,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / Hotline" data-zh="分行 / 熱線">Branch / Hotline</td>
+          <td class="channel-cell col-channel" data-en="Branch / Hotline" data-zh="分行 / 熱線">Branch / Hotline</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('publicbank')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -686,7 +697,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / SME team" data-zh="分行 / 中小企團隊">Branch / SME team</td>
+          <td class="channel-cell col-channel" data-en="Branch / SME team" data-zh="分行 / 中小企團隊">Branch / SME team</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('chonghing')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -710,7 +721,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Online / Branch" data-zh="網上 / 分行">Online / Branch</td>
+          <td class="channel-cell col-channel" data-en="Online / Branch" data-zh="網上 / 分行">Online / Branch</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('fubon')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -734,7 +745,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Branch / Application Hotline" data-zh="分行 / 申請熱線">Branch / Application Hotline</td>
+          <td class="channel-cell col-channel" data-en="Branch / Application Hotline" data-zh="分行 / 申請熱線">Branch / Application Hotline</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('chiyu')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -758,7 +769,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="有表格可下載——請瀏覽銀行網站">✅</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Online 24/7 / Branch" data-zh="24小時網上 / 分行">Online 24/7 / Branch</td>
+          <td class="channel-cell col-channel" data-en="Online 24/7 / Branch" data-zh="24小時網上 / 分行">Online 24/7 / Branch</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('cncb')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -782,7 +793,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="PAO app / pingandb.com" data-zh="PAO應用程式 / pingandb.com">PAO app / pingandb.com</td>
+          <td class="channel-cell col-channel" data-en="PAO app / pingandb.com" data-zh="PAO應用程式 / pingandb.com">PAO app / pingandb.com</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('paobank')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -806,7 +817,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="ZA Bank app" data-zh="眾安銀行應用程式">ZA Bank app</td>
+          <td class="channel-cell col-channel" data-en="ZA Bank app" data-zh="眾安銀行應用程式">ZA Bank app</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('zabank')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -830,7 +841,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Fusion Bank app / Online" data-zh="富融銀行應用程式 / 網上">Fusion Bank app / Online</td>
+          <td class="channel-cell col-channel" data-en="Fusion Bank app / Online" data-zh="富融銀行應用程式 / 網上">Fusion Bank app / Online</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('fusion')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -854,7 +865,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="livi app only" data-zh="僅限理慧應用程式">livi app only</td>
+          <td class="channel-cell col-channel" data-en="livi app only" data-zh="僅限理慧應用程式">livi app only</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('livi')" data-en="Details" data-zh="詳情">Details</button>
           </td>
@@ -878,7 +889,7 @@ td { padding: 10px 12px; vertical-align: middle; font-size: 13px; word-break: br
               <span class="zh-content" style="display:none" title="無公開表格——請瀏覽銀行網站查詢">🌐</span>
             </a>
           </td>
-          <td class="channel-cell" data-en="Ant Bank app / business.antbank.hk" data-zh="螞蟻銀行應用程式 / business.antbank.hk">Ant Bank app / business.antbank.hk</td>
+          <td class="channel-cell col-channel" data-en="Ant Bank app / business.antbank.hk" data-zh="螞蟻銀行應用程式 / business.antbank.hk">Ant Bank app / business.antbank.hk</td>
           <td class="detail-cell">
             <button class="btn-detail" onclick="openModal('antbank')" data-en="Details" data-zh="詳情">Details</button>
           </td>
